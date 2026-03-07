@@ -1013,6 +1013,57 @@
                 btn.disabled = false;
             });
         });
+        // =============================================
+        // TAMBAHAN: Auto-slide halaman
+        // =============================================
+        const pages = ["cover-page","quotes","couple","event","maps","counting","gift","rsvp","thanks"];
+        let currentIndex = 0;
+        let autoSlideTimer = null;
+        let manualResetTimer = null;
+
+        function startAutoSlide() {
+            clearTimeout(autoSlideTimer);
+            const scrollSections = ["rsvp","couple"];
+            const delay = scrollSections.includes(pages[currentIndex]) ? 8000 : 5000;
+            autoSlideTimer = setTimeout(function() {
+                currentIndex = (currentIndex + 1) % pages.length;
+                const pageId = pages[currentIndex];
+                const navEl = document.querySelector(".nav-item[onclick*='" + pageId + "']");
+                if (navEl) {
+                    document.querySelectorAll("section").forEach(sec => {
+                        sec.classList.remove("active");
+                        sec.querySelectorAll(".wa-t,.wa-l,.wa-r,.wa-s,.wa-u").forEach(el => {
+                            el.style.animationName = "none";
+                            void el.offsetWidth;
+                            el.style.animationName = "";
+                        });
+                    });
+                    document.querySelectorAll(".nav-item").forEach(nav => nav.classList.remove("active"));
+                    document.getElementById(pageId).classList.add("active");
+                    navEl.classList.add("active");
+                    updateNavPill(navEl);
+                    scrollNavTo(navEl);
+                }
+                startAutoSlide();
+            }, delay);
+        }
+
+        // Override openInvitation untuk mulai auto-slide
+        const _origOpen = openInvitation;
+        openInvitation = function() {
+            _origOpen();
+            setTimeout(startAutoSlide, 6000);
+        };
+
+        // Override changePage untuk pause 15 detik saat manual
+        const _origChange = changePage;
+        changePage = function(pageId, navEl) {
+            _origChange(pageId, navEl);
+            currentIndex = pages.indexOf(pageId);
+            clearTimeout(autoSlideTimer);
+            clearTimeout(manualResetTimer);
+            manualResetTimer = setTimeout(startAutoSlide, 15000);
+        };
     </script>
 </body>
 </html>
