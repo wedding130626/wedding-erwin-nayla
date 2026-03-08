@@ -580,7 +580,7 @@
             <h1 class="names">Erwin & Nayla</h1>
             <div style="margin-bottom: 25px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; backdrop-filter: blur(2px);">
                 <p style="font-size: 0.8rem; letter-spacing: 1px;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                <div style="font-size: 1.3rem; font-weight: 700; color: var(--gold-light);"></div>
+                <div style="font-size: 1.3rem; font-weight: 700; color: var(--gold-light);">Afiq Abrar & Partner</div>
             </div>
             <button class="btn-open" onclick="openInvitation()">
                 <i class="fas fa-envelope-open"></i> Buka Undangan
@@ -1067,3 +1067,214 @@
     </script>
 </body>
 </html>
+
+<script>
+// =============================================
+// SISTEM BILINGUAL — URL Parameter ?lang=en
+// =============================================
+const translations = {
+    id: {
+        // Gatekeeper
+        resepsi_label   : "RESEPSI PERNIKAHAN",
+        to_label        : "Kepada Yth. Bapak/Ibu/Saudara/i",
+        open_btn        : "Buka Undangan",
+        // Cover
+        cover_label     : "WALIMATUL 'URSY",
+        cover_sub       : "THE WEDDING CELEBRATION",
+        // Quotes
+        quotes_title    : "Kutipan Doa",
+        quotes_text     : '"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya..."',
+        // Couple
+        salam           : "Assalamualaikum Wr. Wb.",
+        couple_intro    : "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami:",
+        putra           : "Putra Pertama dari",
+        putri           : "Putri Kedua dari",
+        // Event
+        akad_title      : "Akad Nikah",
+        akad_day        : "Jumat",
+        akad_time       : "Pukul 08:30 WIB",
+        resepsi_title   : "Resepsi",
+        resepsi_day     : "Sabtu",
+        resepsi_time    : "Pukul 09:00 WIB - Selesai",
+        location_title  : "Kediaman Mempelai Wanita",
+        // Maps
+        maps_title      : "Lokasi Acara",
+        maps_btn        : "Petunjuk Ke Lokasi",
+        // Counting
+        counting_title  : "Menghitung Hari",
+        counting_text   : "Jam terus berdetik, kami tidak sabar untuk merayakannya bersama Anda, keluarga dan teman-teman kami di momen yang sangat spesial ini. Merupakan suatu kehormatan bagi kami untuk berbagi kebahagiaan kami dengan Anda semua.",
+        day_label       : "Hari",
+        hour_label      : "Jam",
+        minute_label    : "Menit",
+        second_label    : "Detik",
+        // Gift
+        gift_intro      : "Kehadiran anda merupakan hadiah terbaik yang bisa kami harapkan. Namun jika anda bermaksud untuk mengirimkan hadiah pernikahan lain, kami sediakan fitur berikut",
+        gift_send       : "Kirim Kado",
+        gift_send_sub   : "Anda dapat mengirim kado ke:",
+        copy_rek        : "Salin Rekening",
+        copy_almt       : "Salin Alamat",
+        // RSVP
+        rsvp_name       : "Nama",
+        rsvp_attend     : "Kehadiran",
+        rsvp_pick       : "Pilih Kehadiran",
+        rsvp_yes        : "Hadir",
+        rsvp_no         : "Tidak Hadir",
+        rsvp_msg        : "Komentar atau Ucapan",
+        rsvp_send       : "Kirim",
+        // Thanks
+        thanks_title    : "Terima Kasih",
+        thanks_text     : "Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.",
+        thanks_label    : "KAMI YANG BERBAHAGIA",
+        // Nav
+        nav_couple      : "Mempelai",
+        nav_event       : "Akad",
+    },
+    en: {
+        // Gatekeeper
+        resepsi_label   : "WEDDING RECEPTION",
+        to_label        : "Dear Mr./Mrs./Ladies & Gentlemen",
+        open_btn        : "Open Invitation",
+        // Cover
+        cover_label     : "WEDDING CELEBRATION",
+        cover_sub       : "THE WEDDING CELEBRATION",
+        // Quotes
+        quotes_title    : "A Prayer",
+        quotes_text     : '"And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between your hearts..."',
+        // Couple
+        salam           : "Assalamualaikum Wr. Wb.",
+        couple_intro    : "With the utmost respect, we would like to invite you to our wedding celebration:",
+        putra           : "First Son of",
+        putri           : "Second Daughter of",
+        // Event
+        akad_title      : "Akad Ceremony",
+        akad_day        : "Friday",
+        akad_time       : "At 08:30 WIB",
+        resepsi_title   : "Reception",
+        resepsi_day     : "Saturday",
+        resepsi_time    : "At 09:00 WIB - Until Finished",
+        location_title  : "Bride\'s Residence",
+        // Maps
+        maps_title      : "Event Location",
+        maps_btn        : "Get Directions",
+        // Counting
+        counting_title  : "Counting Down",
+        counting_text   : "The clock is ticking and we can\'t wait to celebrate this very special moment with you, our family and friends. It is our greatest honor to share our happiness with all of you.",
+        day_label       : "Days",
+        hour_label      : "Hours",
+        minute_label    : "Minutes",
+        second_label    : "Seconds",
+        // Gift
+        gift_intro      : "Your presence is the greatest gift we could hope for. However, if you wish to send a wedding gift, we have provided the following options",
+        gift_send       : "Send a Gift",
+        gift_send_sub   : "You may send a gift to:",
+        copy_rek        : "Copy Account",
+        copy_almt       : "Copy Address",
+        // RSVP
+        rsvp_name       : "Name",
+        rsvp_attend     : "Attendance",
+        rsvp_pick       : "Select Attendance",
+        rsvp_yes        : "Attending",
+        rsvp_no         : "Not Attending",
+        rsvp_msg        : "Message or Wishes",
+        rsvp_send       : "Submit",
+        // Thanks
+        thanks_title    : "Thank You",
+        thanks_text     : "It would be our greatest joy if you could join us and share your blessings on this special occasion.",
+        thanks_label    : "WITH LOVE",
+        // Nav
+        nav_couple      : "Couple",
+        nav_event       : "Event",
+    }
+};
+
+function applyLang(lang) {
+    const t = translations[lang] || translations['id'];
+    const q = (sel) => document.querySelector(sel);
+    const qa = (sel) => document.querySelectorAll(sel);
+
+    // Gatekeeper
+    q('#gatekeeper [style*="RESEPSI"]')                                         && (q('#gatekeeper [style*="RESEPSI"]').textContent = t.resepsi_label);
+    q('#gatekeeper [style*="letter-spacing: 1px"]')                             && (q('#gatekeeper [style*="letter-spacing: 1px"]').textContent = t.to_label);
+    q('.btn-open')                                                               && (q('.btn-open').innerHTML = '<i class="fas fa-envelope-open"></i> ' + t.open_btn);
+
+    // Cover
+    q('#cover-page .wa-t.wa-3')                                                 && (q('#cover-page .wa-t.wa-3').textContent = t.cover_label);
+    q('#cover-page .wa-u.wa-5')                                                 && (q('#cover-page .wa-u.wa-5').textContent = t.cover_sub);
+
+    // Quotes
+    q('#quotes h2')                                                              && (q('#quotes h2').textContent = t.quotes_title);
+    q('#quotes .wa-l')                                                           && (q('#quotes .wa-l').textContent = t.quotes_text);
+
+    // Couple
+    q('#couple .salam')                                                          && (q('#couple .salam').textContent = t.salam);
+    q('#couple .wa-t.wa-2')                                                      && (q('#couple .wa-t.wa-2').textContent = t.couple_intro);
+    const parentNames = qa('#couple .parent-name');
+    if (parentNames[0]) parentNames[0].innerHTML = t.putra + ' <br><b>Bapak Herman & Ibu Maznun</b>';
+    if (parentNames[1]) parentNames[1].innerHTML = t.putri + ' <br><b>Bapak M.Nasir & Ibu Oyi</b>';
+
+    // Event
+    const eventTitles = qa('.event-title');
+    if (eventTitles[0]) eventTitles[0].textContent = t.akad_title;
+    if (eventTitles[1]) eventTitles[1].textContent = t.resepsi_title;
+    const eventDays = qa('.event-day');
+    if (eventDays[0]) eventDays[0].textContent = t.akad_day;
+    if (eventDays[1]) eventDays[1].textContent = t.resepsi_day;
+    const eventTimes = qa('.event-time');
+    if (eventTimes[0]) eventTimes[0].textContent = t.akad_time;
+    if (eventTimes[1]) eventTimes[1].textContent = t.resepsi_time;
+    qa('.event-location-title').forEach(el => el.textContent = t.location_title);
+
+    // Maps
+    q('#maps h2')                                                                && (q('#maps h2').textContent = t.maps_title);
+    q('#maps strong')                                                            && (q('#maps strong').textContent = t.location_title);
+    q('.btn-maps')                                                               && (q('.btn-maps').innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + t.maps_btn);
+
+    // Counting
+    q('.counting-title')                                                         && (q('.counting-title').textContent = t.counting_title);
+    q('.counting-text')                                                          && (q('.counting-text').textContent = t.counting_text);
+    qa('.timer-label')[0]                                                        && (qa('.timer-label')[0].textContent = t.day_label);
+    qa('.timer-label')[1]                                                        && (qa('.timer-label')[1].textContent = t.hour_label);
+    qa('.timer-label')[2]                                                        && (qa('.timer-label')[2].textContent = t.minute_label);
+    qa('.timer-label')[3]                                                        && (qa('.timer-label')[3].textContent = t.second_label);
+
+    // Gift
+    q('.gift-instruction-text')                                                  && (q('.gift-instruction-text').textContent = t.gift_intro);
+    q('#gift-alamat [style*="1.2rem"]')                                          && (q('#gift-alamat [style*="1.2rem"]').textContent = t.gift_send);
+    q('#gift-alamat [style*="0.8rem"]')                                          && (q('#gift-alamat [style*="0.8rem"]').textContent = t.gift_send_sub);
+    q('#copy-btn-rek')                                                           && (q('#copy-btn-rek').textContent = t.copy_rek);
+    q('#copy-btn-almt')                                                          && (q('#copy-btn-almt').textContent = t.copy_almt);
+
+    // RSVP
+    q('label[for="nama"]')                                                       && (q('label[for="nama"]').textContent = t.rsvp_name);
+    q('label[for="kehadiran"]')                                                  && (q('label[for="kehadiran"]').textContent = t.rsvp_attend);
+    q('label[for="ucapan"]')                                                     && (q('label[for="ucapan"]').textContent = t.rsvp_msg);
+    q('#kehadiran option[disabled]')                                             && (q('#kehadiran option[disabled]').textContent = t.rsvp_pick);
+    q('#kehadiran option[value="Hadir"]')                                        && (q('#kehadiran option[value="Hadir"]').textContent = t.rsvp_yes);
+    q('#kehadiran option[value="Tidak Hadir"]')                                  && (q('#kehadiran option[value="Tidak Hadir"]').textContent = t.rsvp_no);
+    q('textarea#ucapan')                                                         && (q('textarea#ucapan').placeholder = t.rsvp_msg);
+    q('.btn-send-rsvp')                                                          && (q('.btn-send-rsvp').textContent = t.rsvp_send);
+
+    // Thanks
+    q('.thanks-title')                                                           && (q('.thanks-title').textContent = t.thanks_title);
+    q('.thanks-text')                                                            && (q('.thanks-text').textContent = t.thanks_text);
+    q('.wa-u.wa-4[style*="letter-spacing"]')                                    && (q('.wa-u.wa-4[style*="letter-spacing"]').textContent = t.thanks_label);
+
+    // Nav labels
+    q('.nav-item[onclick*="couple"] span')                                       && (q('.nav-item[onclick*="couple"] span').textContent = t.nav_couple);
+    q('.nav-item[onclick*="event"] span')                                        && (q('.nav-item[onclick*="event"] span').textContent = t.nav_event);
+}
+
+// Deteksi ?lang=en dari URL dan terapkan
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang') === 'en' ? 'en' : 'id';
+    if (lang === 'en') {
+        // Tunggu DOM siap
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => applyLang('en'));
+        } else {
+            applyLang('en');
+        }
+    }
+})();
+</script>
