@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Wedding of Erwin & Nayla</title>
 
-    <!-- Meta OG untuk preview WhatsApp -->
     <meta property="og:title" content="The Wedding of Erwin & Nayla">
     <meta property="og:description" content="Sabtu, 13 Juni 2026 | Kediaman Mempelai Wanita, Parit 2, Desa Parit, Kecamatan Selat Gelam">
     <meta property="og:image" content="https://wedding130626.github.io/wedding-erwin-nayla/assets/img/foto-berdua.jpeg">
@@ -25,7 +24,6 @@
             --nav-bg: #610000;
         }
 
-        /* Lock Scroll Total */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
@@ -37,7 +35,6 @@
             width: 100vw;
         }
 
-        /* Aturan Background Universal */
         .bg-melayu {
             background: var(--maroon-deep) url('assets/img/bg-melayu.png') no-repeat center center;
             background-size: cover;
@@ -47,7 +44,6 @@
             .bg-melayu { background-size: contain; background-color: #300000; }
         }
 
-        /* --- COVER AWAL (GATEKEEPER) --- */
         #gatekeeper {
             position: fixed; inset: 0; z-index: 9999;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -59,7 +55,6 @@
             background: rgba(0, 0, 0, 0.2); z-index: 1; pointer-events: none;
         }
 
-        /* --- SHARED CONTENT STYLE --- */
         .content {
             position: relative; z-index: 10; text-align: center; width: 90%;
             max-width: 500px; padding: 20px;
@@ -86,10 +81,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.5); margin-top: 15px;
         }
 
-        /* --- MAIN SECTIONS (Halaman Tunggal) --- */
-        main {
-            height: 100vh; width: 100%; position: relative;
-        }
+        main { height: 100vh; width: 100%; position: relative; }
 
         section {
             position: absolute; inset: 0;
@@ -103,7 +95,6 @@
 
         h2 { font-family: 'Cinzel'; color: var(--gold-main); margin-bottom: 20px; }
 
-        /* --- UPDATE BAGIAN MEMPELAI (FOTO BERDUA) --- */
         .scroll-container {
             width: 100%;
             max-height: 85vh;
@@ -116,26 +107,16 @@
         }
         .scroll-container::-webkit-scrollbar { display: none; }
 
-        .couple-container {
-            display: flex; flex-direction: column; width: 100%; margin-top: 10px;
-        }
+        .couple-container { display: flex; flex-direction: column; width: 100%; margin-top: 10px; }
 
-        /* Frame Foto Berdua */
         .foto-berdua-frame {
-            width: 280px;
-            height: 200px;
+            width: 280px; height: 200px;
             margin: 0 auto 25px auto;
             border: 4px solid var(--gold-main);
-            border-radius: 15px;
-            overflow: hidden;
+            border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
-
-        .foto-berdua-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .foto-berdua-frame img { width: 100%; height: 100%; object-fit: cover; }
 
         .mempelai-names {
             font-family: 'Great Vibes', cursive;
@@ -143,9 +124,7 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
 
-        .parent-name {
-            font-size: 0.85rem; line-height: 1.5; color: #f0f0f0; margin-bottom: 5px;
-        }
+        .parent-name { font-size: 0.85rem; line-height: 1.5; color: #f0f0f0; margin-bottom: 5px; }
 
         .divider-wedding {
             font-family: 'Great Vibes', cursive; font-size: 2.2rem;
@@ -154,199 +133,82 @@
 
         .salam { font-size: 0.85rem; font-style: italic; color: var(--gold-light); margin-bottom: 15px; }
 
-        /* --- STYLE AKAD & RESEPSI --- */
         .event-card {
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
             border: 1px solid var(--gold-main);
-            padding: 30px 20px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 400px;
+            padding: 30px 20px; border-radius: 20px;
+            width: 90%; max-width: 400px;
         }
 
         .event-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
-            color: var(--gold-main);
-            margin-bottom: 15px;
+            font-size: 2.5rem; color: var(--gold-main); margin-bottom: 15px;
         }
 
-        .event-day {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
+        .event-day { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
 
         .event-date {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            font-weight: 700;
+            font-family: 'Cinzel', serif; font-size: 3rem; font-weight: 700;
             color: var(--gold-light);
-            border-top: 2px solid var(--gold-main);
-            border-bottom: 2px solid var(--gold-main);
-            padding: 10px 0;
-            margin: 10px 0;
-            display: inline-block;
-            width: 100%;
+            border-top: 2px solid var(--gold-main); border-bottom: 2px solid var(--gold-main);
+            padding: 10px 0; margin: 10px 0; display: inline-block; width: 100%;
         }
 
-        .event-time {
-            font-size: 1rem;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
+        .event-time { font-size: 1rem; margin-bottom: 25px; font-weight: 600; }
+        .event-location-title { font-weight: 700; color: var(--gold-main); margin-bottom: 5px; font-size: 1.1rem; }
+        .event-address { font-size: 0.85rem; line-height: 1.6; color: #f0f0f0; }
 
-        .event-location-title {
-            font-weight: 700;
-            color: var(--gold-main);
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-
-        .event-address {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #f0f0f0;
-        }
-
-        /* --- STYLE MAPS SECTION --- */
         .maps-container {
-            width: 90%;
-            max-width: 450px;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--gold-main);
-            border-radius: 20px;
-            padding: 20px;
-            margin-top: 10px;
+            width: 90%; max-width: 450px;
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px);
+            border: 1px solid var(--gold-main); border-radius: 20px;
+            padding: 20px; margin-top: 10px;
         }
 
         .maps-frame {
-            width: 100%;
-            height: 250px;
-            border-radius: 15px;
-            border: 2px solid var(--gold-main);
-            overflow: hidden;
-            margin-bottom: 15px;
+            width: 100%; height: 250px; border-radius: 15px;
+            border: 2px solid var(--gold-main); overflow: hidden; margin-bottom: 15px;
         }
 
         .btn-maps {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--gold-main);
-            color: var(--maroon-deep);
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            margin-top: 10px;
-            border: none;
-            cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--gold-main); color: var(--maroon-deep); text-decoration: none;
+            padding: 12px 25px; border-radius: 25px; font-weight: 700; font-size: 0.9rem;
+            transition: 0.3s; margin-top: 10px; border: none; cursor: pointer;
         }
+        .btn-maps:hover { background: var(--gold-light); transform: scale(1.05); }
 
-        .btn-maps:hover {
-            background: var(--gold-light);
-            transform: scale(1.05);
-        }
+        .counting-title { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--gold-main); margin-bottom: 30px; }
 
-        /* --- STYLE COUNTING SECTION --- */
-        .counting-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.8rem;
-            color: var(--gold-main);
-            margin-bottom: 30px;
-        }
-
-        .timer-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            margin-bottom: 30px;
-        }
+        .timer-wrapper { display: flex; justify-content: center; gap: 10px; width: 100%; margin-bottom: 30px; }
 
         .timer-box {
-            background: var(--gold-main);
-            color: var(--maroon-deep);
-            width: 70px;
-            height: 70px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background: var(--gold-main); color: var(--maroon-deep);
+            width: 70px; height: 70px; border-radius: 10px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .timer-number {
-            font-size: 1.5rem;
-            font-weight: 800;
-            font-family: 'Cinzel', serif;
-            line-height: 1;
-        }
+        .timer-number { font-size: 1.5rem; font-weight: 800; font-family: 'Cinzel', serif; line-height: 1; }
+        .timer-label { font-size: 0.7rem; font-weight: 600; text-transform: capitalize; }
+        .counting-text { font-size: 0.85rem; line-height: 1.8; max-width: 320px; margin: 0 auto; color: #f0f0f0; }
 
-        .timer-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: capitalize;
-        }
-
-        .counting-text {
-            font-size: 0.85rem;
-            line-height: 1.8;
-            max-width: 320px;
-            margin: 0 auto;
-            color: #f0f0f0;
-        }
-
-        /* --- STYLE GIFT SECTION --- */
-        .gift-title-fancy {
-            font-family: 'Pinyon Script', cursive;
-            color: var(--gold-main);
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .gift-instruction-text {
-            font-size: 0.85rem;
-            color: #f0f0f0;
-            max-width: 340px;
-            margin: 0 auto 25px auto;
-            line-height: 1.6;
-        }
+        .gift-title-fancy { font-family: 'Pinyon Script', cursive; color: var(--gold-main); font-size: 3rem; margin-bottom: 15px; }
+        .gift-instruction-text { font-size: 0.85rem; color: #f0f0f0; max-width: 340px; margin: 0 auto 25px auto; line-height: 1.6; }
 
         .btn-gift-option {
-            background-color: var(--gold-main);
-            color: var(--maroon-deep);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
+            background-color: var(--gold-main); color: var(--maroon-deep);
+            padding: 10px 20px; border-radius: 50px; font-weight: 700;
+            display: flex; align-items: center; gap: 8px;
+            border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem;
         }
-
         .btn-gift-option:hover { background-color: var(--gold-light); }
 
         .gift-detail-box {
-            margin-top: 25px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 20px;
-            border-radius: 15px;
-            width: 100%;
-            max-width: 380px;
-            border: 1px solid rgba(191, 149, 63, 0.3);
-            display: none;
+            margin-top: 25px; background: rgba(0, 0, 0, 0.4);
+            padding: 20px; border-radius: 15px; width: 100%; max-width: 380px;
+            border: 1px solid rgba(191, 149, 63, 0.3); display: none;
             animation: fadeIn 0.5s ease;
         }
 
@@ -355,29 +217,17 @@
         .acc-name { font-size: 1rem; color: var(--gold-light); }
         
         .btn-copy-gift {
-            background-color: var(--gold-main);
-            border: none;
-            padding: 6px 15px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin: 10px 0;
-            cursor: pointer;
-            transition: 0.3s;
+            background-color: var(--gold-main); border: none;
+            padding: 6px 15px; border-radius: 5px; font-size: 0.8rem;
+            font-weight: 700; margin: 10px 0; cursor: pointer; transition: 0.3s;
         }
 
         .address-box { font-size: 0.9rem; line-height: 1.6; color: #fff; margin: 10px 0; }
 
-        /* --- STYLE BARU: RSVP SECTION --- */
         #rsvp .rsvp-box {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: left;
-            width: 100%;
-            max-width: 400px;
-            border: 1px solid var(--gold-main);
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px);
+            padding: 20px; border-radius: 15px; text-align: left;
+            width: 100%; max-width: 400px; border: 1px solid var(--gold-main);
         }
 
         .form-group { margin-bottom: 15px; }
@@ -391,9 +241,7 @@
             padding: 12px; border: none; border-radius: 25px; font-weight: 700; cursor: pointer;
         }
 
-        .comment-container {
-            margin-top: 20px; width: 100%; max-width: 400px; max-height: 250px; overflow-y: auto;
-        }
+        .comment-container { margin-top: 20px; width: 100%; max-width: 400px; max-height: 250px; overflow-y: auto; }
 
         .comment-item {
             background: white; color: #333; padding: 12px; border-radius: 10px;
@@ -406,52 +254,21 @@
             font-weight: 700; flex-shrink: 0; font-size: 0.8rem;
         }
 
-        .badge-hadir {
-            background: #e1f5fe; color: #0288d1; font-size: 0.6rem;
-            padding: 2px 6px; border-radius: 5px; font-weight: 700; margin-left: 5px;
-        }
-
+        .badge-hadir { background: #e1f5fe; color: #0288d1; font-size: 0.6rem; padding: 2px 6px; border-radius: 5px; font-weight: 700; margin-left: 5px; }
         .comment-name { font-weight: 700; font-size: 0.85rem; }
         .comment-text { font-size: 0.8rem; margin: 3px 0; }
         .comment-date { font-size: 0.65rem; color: #888; }
 
-        /* --- STYLE BARU: THANKS SECTION --- */
-        .thanks-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .thanks-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            color: var(--gold-main);
-            margin-bottom: 10px;
-        }
-
-        .thanks-text {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            max-width: 350px;
-            margin: 0 auto 30px auto;
-            color: #f0f0f0;
-        }
-
-        .couple-signature {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 2.5rem;
-            color: var(--gold-light);
-            margin-top: 10px;
-        }
+        .thanks-content { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+        .thanks-title { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--gold-main); margin-bottom: 10px; }
+        .thanks-text { font-size: 0.9rem; line-height: 1.8; max-width: 350px; margin: 0 auto 30px auto; color: #f0f0f0; }
+        .couple-signature { font-family: 'Pinyon Script', cursive; font-size: 2.5rem; color: var(--gold-light); margin-top: 10px; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- NAVIGATION --- */
         #bottom-nav {
             position: fixed; bottom: -110px; left: 0; width: 100%; height: 80px;
             background: var(--nav-bg); border-top: 1px solid var(--gold-main);
@@ -466,15 +283,14 @@
             text-decoration: none; color: rgba(255, 255, 255, 0.5);
             display: flex; flex-direction: column; align-items: center;
             font-size: 0.6rem; min-width: 75px; transition: 0.3s;
+            position: relative; z-index: 1;
         }
-        .nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
+        .nav-item i { font-size: 1.2rem; margin-bottom: 4px; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s; }
         .nav-item.active { color: var(--gold-light); font-weight: 700; }
+        .nav-item.active i { transform: scale(1.3) translateY(-4px); color: var(--gold-main); }
+        .nav-item:not(.active):hover { color: rgba(255,255,255,0.8); transform: translateY(-2px); }
 
-        /* Floating Controls */
-        .side-controls {
-            position: fixed; right: 20px; bottom: 100px;
-            z-index: 9500; opacity: 0; transform: translateX(50px); transition: 0.8s;
-        }
+        .side-controls { position: fixed; right: 20px; bottom: 100px; z-index: 9500; opacity: 0; transform: translateX(50px); transition: 0.8s; }
         .side-controls.show { opacity: 1; transform: translateX(0); }
         .control-circle {
             width: 45px; height: 45px; background: var(--gold-main);
@@ -482,54 +298,26 @@
             color: var(--maroon-deep); cursor: pointer;
         }
 
-        /* =============================================
-           TAMBAHAN ANIMASI — TIDAK UBAH KODE ASLI
-        ============================================= */
+        @keyframes wa-from-top { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes wa-from-left { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes wa-from-right { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes wa-scale-in { from { opacity: 0; transform: scale(0.65); } to { opacity: 1; transform: scale(1); } }
+        @keyframes wa-fade-up { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- Keyframes baru --- */
-        @keyframes wa-from-top {
-            from { opacity: 0; transform: translateY(-40px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes wa-from-left {
-            from { opacity: 0; transform: translateX(-50px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes wa-from-right {
-            from { opacity: 0; transform: translateX(50px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes wa-scale-in {
-            from { opacity: 0; transform: scale(0.65); }
-            to   { opacity: 1; transform: scale(1); }
-        }
-        @keyframes wa-fade-up {
-            from { opacity: 0; transform: translateY(35px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Gatekeeper: tiap child turun dari atas --- */
-        #gatekeeper .content > * {
-            opacity: 0;
-            animation: wa-from-top 0.6s forwards ease-out;
-        }
+        #gatekeeper .content > * { opacity: 0; animation: wa-from-top 0.6s forwards ease-out; }
         #gatekeeper .content > *:nth-child(1) { animation-delay: 0.10s; }
         #gatekeeper .content > *:nth-child(2) { animation-delay: 0.25s; }
         #gatekeeper .content > *:nth-child(3) { animation-delay: 0.40s; }
         #gatekeeper .content > *:nth-child(4) { animation-delay: 0.55s; }
         #gatekeeper .content > *:nth-child(5) { animation-delay: 0.70s; }
 
-        /* --- Kelas helper animasi section --- */
-        /* Default semua tersembunyi sampai section aktif */
         .wa-t, .wa-l, .wa-r, .wa-s, .wa-u { opacity: 0; }
-
         section.active .wa-t { animation: wa-from-top   0.55s forwards ease-out; }
         section.active .wa-l { animation: wa-from-left  0.55s forwards ease-out; }
         section.active .wa-r { animation: wa-from-right 0.55s forwards ease-out; }
         section.active .wa-s { animation: wa-scale-in   0.55s forwards ease-out; }
         section.active .wa-u { animation: wa-fade-up    0.55s forwards ease-out; }
 
-        /* Stagger delay */
         .wa-1 { animation-delay: 0.05s !important; }
         .wa-2 { animation-delay: 0.18s !important; }
         .wa-3 { animation-delay: 0.31s !important; }
@@ -537,33 +325,13 @@
         .wa-5 { animation-delay: 0.57s !important; }
         .wa-6 { animation-delay: 0.70s !important; }
 
-        /* --- Nav: icon aktif membesar & naik --- */
-        .nav-item i {
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s;
-        }
-        .nav-item.active i {
-            transform: scale(1.3) translateY(-4px);
-            color: var(--gold-main);
-        }
-        .nav-item:not(.active):hover {
-            color: rgba(255,255,255,0.8);
-            transform: translateY(-2px);
-        }
-
-        /* --- Nav pill indikator gerak --- */
         #nav-pill {
-            position: absolute;
-            bottom: 8px;
-            height: 62px;
-            width: 75px;
-            background: rgba(191, 149, 63, 0.18);
-            border-radius: 12px;
+            position: absolute; bottom: 8px; height: 62px; width: 75px;
+            background: rgba(191, 149, 63, 0.18); border-radius: 12px;
             border: 1px solid var(--gold-main);
             transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s;
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
         }
-        .nav-item { position: relative; z-index: 1; }
     </style>
 </head>
 <body class="bg-melayu">
@@ -572,206 +340,192 @@
         <source src="assets/audio/music2.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- ===== GATEKEEPER ===== -->
     <div id="gatekeeper" class="bg-melayu">
         <div class="content">
             <img src="assets/img/kapal-logo.png" class="logo-kapal">
             <div class="date-ornament">13 . 06 . 26</div>
-            <p style="font-family: 'Cinzel'; color: var(--gold-main); font-weight: 700; margin-bottom: 20px; letter-spacing: 2px;">RESEPSI PERNIKAHAN</p>
-            <h1 class="names">Erwin & Nayla</h1>
-            <div style="margin-bottom: 25px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; backdrop-filter: blur(2px);">
-                <p style="font-size: 0.8rem; letter-spacing: 1px;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                <div style="font-size: 1.3rem; font-weight: 700; color: var(--gold-light);">Afiq Abrar & Partner</div>
+            <p id="i-gt-label" style="font-family:'Cinzel';color:var(--gold-main);font-weight:700;margin-bottom:20px;letter-spacing:2px;"></p>
+            <h1 class="names">Erwin &amp; Nayla</h1>
+            <div style="margin-bottom:25px;background:rgba(0,0,0,0.3);padding:15px;border-radius:15px;backdrop-filter:blur(2px);">
+                <p id="i-gt-to" style="font-size:0.8rem;letter-spacing:1px;"></p>
+                <div style="font-size:1.3rem;font-weight:700;color:var(--gold-light);"></div>
             </div>
             <button class="btn-open" onclick="openInvitation()">
-                <i class="fas fa-envelope-open"></i> Buka Undangan
+                <i class="fas fa-envelope-open"></i> <span id="i-gt-btn"></span>
             </button>
         </div>
     </div>
 
     <main>
+        <!-- ===== COVER ===== -->
         <section id="cover-page" class="active">
             <div class="content">
                 <img src="assets/img/kapal-logo.png" class="logo-kapal wa-s wa-1">
                 <div class="date-ornament wa-t wa-2">13 . 06 . 26</div>
-                <p class="wa-t wa-3" style="font-family: 'Cinzel'; color: var(--gold-main); font-weight: 700; margin-bottom: 20px; letter-spacing: 2px;">WALIMATUL 'URSY</p>
-                <h1 class="names wa-t wa-4">Erwin & Nayla</h1>
-                <p class="wa-u wa-5" style="font-family: 'Cinzel'; color: var(--gold-light); letter-spacing: 3px; font-size: 0.8rem;">THE WEDDING CELEBRATION</p>
+                <p id="i-cv-label" class="wa-t wa-3" style="font-family:'Cinzel';color:var(--gold-main);font-weight:700;margin-bottom:20px;letter-spacing:2px;"></p>
+                <h1 class="names wa-t wa-4">Erwin &amp; Nayla</h1>
+                <p id="i-cv-sub" class="wa-u wa-5" style="font-family:'Cinzel';color:var(--gold-light);letter-spacing:3px;font-size:0.8rem;"></p>
             </div>
         </section>
 
+        <!-- ===== QUOTES ===== -->
         <section id="quotes">
-            <h2 class="wa-t wa-1">Kutipan Doa</h2>
-            <p class="wa-l wa-2" style="line-height: 1.8; font-style: italic; max-width: 450px;">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya..."</p>
-            <p class="wa-r wa-3" style="margin-top: 15px; color: var(--gold-main); font-weight: 600;">(QS. Ar-Rum: 21)</p>
+            <h2 id="i-q-title" class="wa-t wa-1"></h2>
+            <p id="i-q-text" class="wa-l wa-2" style="line-height:1.8;font-style:italic;max-width:450px;"></p>
+            <p class="wa-r wa-3" style="margin-top:15px;color:var(--gold-main);font-weight:600;">(QS. Ar-Rum: 21)</p>
         </section>
         
+        <!-- ===== COUPLE ===== -->
         <section id="couple">
             <div class="scroll-container">
-                <p class="salam wa-t wa-1">Assalamualaikum Wr. Wb.</p>
-                <p class="wa-t wa-2" style="font-size: 0.75rem; margin-bottom: 25px; line-height: 1.4; max-width: 320px;">
-                    Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami:
-                </p>
-
+                <p id="i-cp-salam" class="salam wa-t wa-1"></p>
+                <p id="i-cp-intro" class="wa-t wa-2" style="font-size:0.75rem;margin-bottom:25px;line-height:1.4;max-width:320px;"></p>
                 <div class="couple-container">
                     <div class="foto-berdua-frame wa-s wa-3">
                         <img src="assets/img/foto-berdua.jpeg" alt="Erwin & Nayla">
                     </div>
-
                     <div class="mempelai-box wa-l wa-4">
                         <h3 class="mempelai-names">Erwin Novianto</h3>
                         <p class="parent-name">
-                            Putra Pertama dari <br>
-                            <b>Bapak Herman & Ibu Maznun</b>
+                            <span id="i-cp-putra"></span><br>
+                            <b>Bapak Herman.Alm &amp; Ibu Maznun.Almh</b>
                         </p>
                     </div>
-
-                    <div class="divider-wedding wa-s wa-5">&</div>
-
+                    <div class="divider-wedding wa-s wa-5">&amp;</div>
                     <div class="mempelai-box wa-r wa-6">
                         <h3 class="mempelai-names">Nayla</h3>
                         <p class="parent-name">
-                            Putri Kedua dari <br>
-                            <b>Bapak M.Nasir & Ibu Oyi</b>
+                            <span id="i-cp-putri"></span><br>
+                            <b>Bapak M.Nasir &amp; Ibu Oyi.Almh</b>
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ===== EVENT ===== -->
         <section id="event">
             <div class="scroll-container">
-                <div class="event-card wa-s wa-1" style="margin-bottom: 20px;">
-                    <h3 class="event-title">Akad Nikah</h3>
-                    <p class="event-day">Jumat</p>
+                <div class="event-card wa-s wa-1" style="margin-bottom:20px;">
+                    <h3 id="i-ev-akad-title" class="event-title"></h3>
+                    <p id="i-ev-akad-day" class="event-day"></p>
                     <div class="event-date">12.06.26</div>
-                    <p class="event-time">Pukul 08:30 WIB</p>
-                    <p class="event-location-title">Kediaman Mempelai Wanita</p>
+                    <p id="i-ev-akad-time" class="event-time"></p>
+                    <p id="i-ev-akad-loc" class="event-location-title"></p>
                     <p class="event-address">Parit 2, Desa Parit, Kecamatan Selat Gelam</p>
                 </div>
-
                 <div class="event-card wa-u wa-2">
-                    <h3 class="event-title">Resepsi</h3>
-                    <p class="event-day">Sabtu</p>
+                    <h3 id="i-ev-res-title" class="event-title"></h3>
+                    <p id="i-ev-res-day" class="event-day"></p>
                     <div class="event-date">13.06.26</div>
-                    <p class="event-time">Pukul 09:00 WIB - Selesai</p>
-                    <p class="event-location-title">Kediaman Mempelai Wanita</p>
+                    <p id="i-ev-res-time" class="event-time"></p>
+                    <p id="i-ev-res-loc" class="event-location-title"></p>
                     <p class="event-address">Parit 2, Desa Parit, Kecamatan Selat Gelam</p>
                 </div>
             </div>
         </section>
 
+        <!-- ===== MAPS ===== -->
         <section id="maps">
             <div class="maps-container wa-u wa-1">
-                <h2 style="font-size: 1.5rem; margin-bottom: 15px;">Lokasi Acara</h2>
+                <h2 id="i-mp-title" style="font-size:1.5rem;margin-bottom:15px;"></h2>
                 <div class="maps-frame">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.02700810168!2d103.35!3d0.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwNDgnMDAuMCJOIDEwM8KwMjEnMDAuMCJF!5e0!3m2!1sid!2sid!4v1625000000000" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.02700810168!2d103.35!3d0.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwNDgnMDAuMCJOIDEwM8KwMjEnMDAuMCJF!5e0!3m2!1sid!2sid!4v1625000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
-                <p class="event-address" style="margin-bottom: 15px;">
-                    <strong>Kediaman Mempelai Wanita</strong><br>
+                <p class="event-address" style="margin-bottom:15px;">
+                    <strong id="i-mp-loc"></strong><br>
                     Parit 2, Desa Parit, Kecamatan Selat Gelam
                 </p>
                 <a href="https://goo.gl/maps/example" target="_blank" class="btn-maps">
-                    <i class="fas fa-map-marker-alt"></i> Petunjuk Ke Lokasi
+                    <i class="fas fa-map-marker-alt"></i> <span id="i-mp-btn"></span>
                 </a>
             </div>
         </section>
 
+        <!-- ===== COUNTING ===== -->
         <section id="counting">
             <div class="content">
-                <h2 class="counting-title wa-t wa-1">Menghitung Hari</h2>
-                
+                <h2 id="i-ct-title" class="counting-title wa-t wa-1"></h2>
                 <div class="timer-wrapper">
                     <div class="timer-box wa-l wa-2">
                         <span class="timer-number" id="days">00</span>
-                        <span class="timer-label">Hari</span>
+                        <span class="timer-label" id="i-ct-day"></span>
                     </div>
                     <div class="timer-box wa-t wa-3">
                         <span class="timer-number" id="hours">00</span>
-                        <span class="timer-label">Jam</span>
+                        <span class="timer-label" id="i-ct-hour"></span>
                     </div>
                     <div class="timer-box wa-t wa-4">
                         <span class="timer-number" id="minutes">00</span>
-                        <span class="timer-label">Menit</span>
+                        <span class="timer-label" id="i-ct-min"></span>
                     </div>
                     <div class="timer-box wa-r wa-5">
                         <span class="timer-number" id="seconds">00</span>
-                        <span class="timer-label">Detik</span>
+                        <span class="timer-label" id="i-ct-sec"></span>
                     </div>
                 </div>
-
-                <p class="counting-text wa-u wa-6">
-                    Jam terus berdetik, kami tidak sabar untuk merayakannya bersama Anda, keluarga dan teman-teman kami di momen yang sangat spesial ini. Merupakan suatu kehormatan bagi kami untuk berbagi kebahagiaan kami dengan Anda semua.
-                </p>
+                <p id="i-ct-text" class="counting-text wa-u wa-6"></p>
             </div>
         </section>
 
+        <!-- ===== GIFT ===== -->
         <section id="gift">
             <div class="content">
                 <h2 class="gift-title-fancy wa-t wa-1">Wedding Gift</h2>
-                <p class="gift-instruction-text wa-t wa-2">
-                    Kehadiran anda merupakan hadiah terbaik yang bisa kami harapkan. Namun jika anda bermaksud untuk mengirimkan hadiah pernikahan lain, kami sediakan fitur berikut
-                </p>
-
-                <div class="wa-u wa-3" style="display: flex; gap: 10px; justify-content: center; align-items: center; width: 100%; max-width: 350px; margin: 0 auto 25px auto;">
-                    <button class="btn-gift-option" onclick="toggleGiftDisplay('rekening')" style="flex: 1; justify-content: center; padding: 10px 5px; font-size: 0.8rem; white-space: nowrap;">
-                        <i class="fas fa-credit-card"></i> Klik Disini
+                <p id="i-gf-intro" class="gift-instruction-text wa-t wa-2"></p>
+                <div class="wa-u wa-3" style="display:flex;gap:10px;justify-content:center;align-items:center;width:100%;max-width:350px;margin:0 auto 25px auto;">
+                    <button class="btn-gift-option" onclick="toggleGiftDisplay('rekening')" style="flex:1;justify-content:center;padding:10px 5px;font-size:0.8rem;white-space:nowrap;">
+                        <i class="fas fa-credit-card"></i> <span id="i-gf-btn1"></span>
                     </button>
-                    <button class="btn-gift-option" onclick="toggleGiftDisplay('alamat')" style="flex: 1; justify-content: center; padding: 10px 5px; font-size: 0.8rem; white-space: nowrap;">
-                        <i class="fas fa-gift"></i> Klik Disini
+                    <button class="btn-gift-option" onclick="toggleGiftDisplay('alamat')" style="flex:1;justify-content:center;padding:10px 5px;font-size:0.8rem;white-space:nowrap;">
+                        <i class="fas fa-gift"></i> <span id="i-gf-btn2"></span>
                     </button>
                 </div>
-
                 <div id="gift-rekening" class="gift-detail-box">
-                    <img src="assets/img/logo-bca.png" alt="BSI" class="bank-logo">
+                    <img src="assets/img/logo-bca.png" alt="BCA" class="bank-logo">
                     <p class="acc-number" id="num-rek">5935010770</p>
-                    <button class="btn-copy-gift" id="copy-btn-rek" onclick="copyGiftText('5935010770', 'copy-btn-rek')">Salin Rekening</button>
+                    <button class="btn-copy-gift" id="copy-btn-rek" onclick="copyGiftText('5935010770','copy-btn-rek')"><span id="i-gf-copy-rek"></span></button>
                     <p class="acc-name">Erwin Novianto</p>
                 </div>
-
                 <div id="gift-alamat" class="gift-detail-box">
-                    <p style="color: var(--gold-main); font-weight: 700; font-size: 1.2rem; margin-bottom: 5px;">Kirim Kado</p>
-                    <p style="font-size: 0.8rem; margin-bottom: 10px;">Anda dapat mengirim kado ke:</p>
-                    <p class="address-box" id="text-alamat">
-                        CV Dina Komplek Timah RT003/RW005, NO.11 D.46, Kelurahan Teluk-Uma, Kecamatan Tebing, Kabupaten Karimun, Kepulauan Riau
-                    </p>
-                    <button class="btn-copy-gift" id="copy-btn-almt" onclick="copyGiftText('CV Dina Komplek Timah RT003/RW005, NO.11 D.46, Kelurahan Teluk-Uma, Kecamatan Tebing, Kabupaten Karimun, Kepulauan Riau', 'copy-btn-almt')">Salin Alamat</button>
+                    <p id="i-gf-send-title" style="color:var(--gold-main);font-weight:700;font-size:1.2rem;margin-bottom:5px;"></p>
+                    <p id="i-gf-send-sub" style="font-size:0.8rem;margin-bottom:10px;"></p>
+                    <p class="address-box" id="text-alamat">CV Dina Komplek Timah RT003/RW005, NO.11 D.46, Kelurahan Teluk-Uma, Kecamatan Tebing, Kabupaten Karimun, Kepulauan Riau</p>
+                    <button class="btn-copy-gift" id="copy-btn-almt" onclick="copyGiftText('CV Dina Komplek Timah RT003/RW005, NO.11 D.46, Kelurahan Teluk-Uma, Kecamatan Tebing, Kabupaten Karimun, Kepulauan Riau','copy-btn-almt')"><span id="i-gf-copy-almt"></span></button>
                 </div>
             </div>
         </section>
 
+        <!-- ===== RSVP ===== -->
         <section id="rsvp">
             <div class="scroll-container">
                 <h2 class="wa-t wa-1">RSVP</h2>
                 <form id="rsvp-form" class="rsvp-box wa-u wa-2">
                     <div class="form-group">
-                        <label for="nama">Nama</label>
+                        <label id="i-rv-name-lbl" for="nama"></label>
                         <input type="text" id="nama" name="nama" placeholder="" required>
                     </div>
                     <div class="form-group">
-                        <label for="kehadiran">Kehadiran</label>
+                        <label id="i-rv-att-lbl" for="kehadiran"></label>
                         <select id="kehadiran" name="kehadiran" required>
-                            <option value="" disabled selected>Pilih Kehadiran</option>
-                            <option value="Hadir">Hadir</option>
-                            <option value="Tidak Hadir">Tidak Hadir</option>
+                            <option id="i-rv-pick" value="" disabled selected></option>
+                            <option id="i-rv-yes" value="Hadir"></option>
+                            <option id="i-rv-no" value="Tidak Hadir"></option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="ucapan">Komentar atau Ucapan</label>
-                        <textarea id="ucapan" name="ucapan" rows="4" placeholder="Komentar atau Ucapan"></textarea>
+                        <label id="i-rv-msg-lbl" for="ucapan"></label>
+                        <textarea id="ucapan" name="ucapan" rows="4"></textarea>
                     </div>
-                    <button type="submit" class="btn-send-rsvp">Kirim</button>
+                    <button type="submit" id="i-rv-send-btn" class="btn-send-rsvp"></button>
                 </form>
-
-                <hr style="width: 100%; border: 0.5px solid rgba(255,255,255,0.2); margin: 25px 0;">
-
+                <hr style="width:100%;border:0.5px solid rgba(255,255,255,0.2);margin:25px 0;">
                 <div class="comment-container">
                     <div class="comment-item">
                         <div class="avatar">BF</div>
                         <div class="comment-body">
-                            <div style="display: flex; align-items: center;">
+                            <div style="display:flex;align-items:center;">
                                 <span class="comment-name">Bro Fachran</span>
                                 <span class="badge-hadir">Hadir</span>
                             </div>
@@ -783,15 +537,14 @@
             </div>
         </section>
 
+        <!-- ===== THANKS ===== -->
         <section id="thanks">
             <div class="thanks-content">
-                <img src="assets/img/kapal-logo.png" class="logo-kapal wa-s wa-1" style="margin-bottom: 20px;">
-                <h2 class="thanks-title wa-t wa-2">Terima Kasih</h2>
-                <p class="thanks-text wa-u wa-3">
-                    Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.
-                </p>
-                <p class="wa-u wa-4" style="font-size: 0.8rem; letter-spacing: 2px; color: var(--gold-main); margin-bottom: 5px;">KAMI YANG BERBAHAGIA</p>
-                <h3 class="couple-signature wa-u wa-5">Erwin & Nayla</h3>
+                <img src="assets/img/kapal-logo.png" class="logo-kapal wa-s wa-1" style="margin-bottom:20px;">
+                <h2 id="i-tk-title" class="thanks-title wa-t wa-2"></h2>
+                <p id="i-tk-text" class="thanks-text wa-u wa-3"></p>
+                <p id="i-tk-label" class="wa-u wa-4" style="font-size:0.8rem;letter-spacing:2px;color:var(--gold-main);margin-bottom:5px;"></p>
+                <h3 class="couple-signature wa-u wa-5">Erwin &amp; Nayla</h3>
             </div>
         </section>
     </main>
@@ -801,480 +554,451 @@
     </div>
 
     <nav id="bottom-nav">
-        <!-- TAMBAHAN: pill indikator -->
         <div id="nav-pill"></div>
-
-        <a href="javascript:void(0)" class="nav-item active" onclick="changePage('cover-page', this)">
+        <a href="javascript:void(0)" class="nav-item active" onclick="changePage('cover-page',this)">
             <i class="fas fa-home"></i><span>Cover</span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="changePage('quotes', this)">
+        <a href="javascript:void(0)" class="nav-item" onclick="changePage('quotes',this)">
             <i class="fas fa-quote-left"></i><span>Quotes</span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="changePage('couple', this)">
-            <i class="fas fa-heart"></i><span>Mempelai</span>
+        <a href="javascript:void(0)" class="nav-item" onclick="changePage('couple',this)">
+            <i class="fas fa-heart"></i><span id="i-nav-couple"></span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="changePage('event', this)">
-            <i class="fas fa-calendar-alt"></i><span>Akad</span>
+        <a href="javascript:void(0)" class="nav-item" onclick="changePage('event',this)">
+            <i class="fas fa-calendar-alt"></i><span id="i-nav-event"></span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="changePage('maps', this)">
+        <a href="javascript:void(0)" class="nav-item" onclick="changePage('maps',this)">
             <i class="fas fa-map-marker-alt"></i><span>Maps</span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="changePage('counting', this)">
-            <i class="fas fa-hourglass-start"></i><span>Counting</span>
+        <a href="javascript:void(0)" class="nav-item" onclick="changePage('counting',this)">
+            <i class="fas fa-hourglass-start"></i><span id="i-nav-counting"></span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="changePage('gift', this)">
+        <a href="javascript:void(0)" class="nav-item" onclick="changePage('gift',this)">
             <i class="fas fa-gift"></i><span>Gift</span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="changePage('rsvp', this)">
+        <a href="javascript:void(0)" class="nav-item" onclick="changePage('rsvp',this)">
             <i class="fas fa-user-check"></i><span>RSVP</span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="changePage('thanks', this)">
-            <i class="fas fa-envelope-open-text"></i><span>Thanks</span>
+        <a href="javascript:void(0)" class="nav-item" onclick="changePage('thanks',this)">
+            <i class="fas fa-envelope-open-text"></i><span id="i-nav-thanks"></span>
         </a>
     </nav>
 
     <script>
-        function openInvitation() {
-            const audio = document.getElementById('bgMusic');
-            audio.play().catch(() => {});
-            document.getElementById('gatekeeper').style.transform = "translateY(-100%)";
-            setTimeout(() => {
-                document.getElementById('bottom-nav').classList.add('active');
-                document.getElementById('sideControls').classList.add('show');
-                setTimeout(updateNavPill, 150); // TAMBAHAN: init pill
-            }, 600);
+    // ============================================================
+    // BILINGUAL SYSTEM — ?lang=en  /  default = id
+    // ============================================================
+    const LANG = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'id';
+
+    const TX = {
+        id: {
+            /* gatekeeper */
+            gt_label      : "RESEPSI PERNIKAHAN",
+            gt_to         : "Kepada Yth. Bapak/Ibu/Saudara/i",
+            gt_btn        : "Buka Undangan",
+            /* cover */
+            cv_label      : "WALIMATUL 'URSY",
+            cv_sub        : "THE WEDDING CELEBRATION",
+            /* quotes */
+            q_title       : "Kutipan Doa",
+            q_text        : "\u201cDan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya...\u201d",
+            /* couple */
+            cp_salam      : "Assalamualaikum Wr. Wb.",
+            cp_intro      : "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami:",
+            cp_putra      : "Putra dari",
+            cp_putri      : "Putri dari",
+            /* event */
+            ev_akad_title : "Akad Nikah",
+            ev_akad_day   : "Jumat",
+            ev_akad_time  : "Pukul 08:30 WIB",
+            ev_akad_loc   : "Kediaman Mempelai Wanita",
+            ev_res_title  : "Resepsi",
+            ev_res_day    : "Sabtu",
+            ev_res_time   : "Pukul 09:00 WIB - Selesai",
+            ev_res_loc    : "Kediaman Mempelai Wanita",
+            /* maps */
+            mp_title      : "Lokasi Acara",
+            mp_loc        : "Kediaman Mempelai Wanita",
+            mp_btn        : "Petunjuk Ke Lokasi",
+            /* counting */
+            ct_title      : "Menghitung Hari",
+            ct_day        : "Hari",
+            ct_hour       : "Jam",
+            ct_min        : "Menit",
+            ct_sec        : "Detik",
+            ct_text       : "Jam terus berdetik, kami tidak sabar untuk merayakannya bersama Anda, keluarga dan teman-teman kami di momen yang sangat spesial ini. Merupakan suatu kehormatan bagi kami untuk berbagi kebahagiaan kami dengan Anda semua.",
+            ct_ongoing    : "Acara Sedang Berlangsung",
+            /* gift */
+            gf_intro      : "Kehadiran anda merupakan hadiah terbaik yang bisa kami harapkan. Namun jika anda bermaksud untuk mengirimkan hadiah pernikahan lain, kami sediakan fitur berikut",
+            gf_btn1       : "Klik Disini",
+            gf_btn2       : "Klik Disini",
+            gf_copy_rek   : "Salin Rekening",
+            gf_send_title : "Kirim Kado",
+            gf_send_sub   : "Anda dapat mengirim kado ke:",
+            gf_copy_almt  : "Salin Alamat",
+            gf_copied     : "Berhasil Tersalin!",
+            /* rsvp */
+            rv_name       : "Nama",
+            rv_att        : "Kehadiran",
+            rv_pick       : "Pilih Kehadiran",
+            rv_yes        : "Hadir",
+            rv_no         : "Tidak Hadir",
+            rv_msg        : "Komentar atau Ucapan",
+            rv_send       : "Kirim",
+            rv_sending    : "Mengirim...",
+            rv_sent       : "\u2713 Terkirim!",
+            rv_fail       : "Gagal, coba lagi",
+            rv_just_now   : "Baru saja",
+            /* thanks */
+            tk_title      : "Terima Kasih",
+            tk_text       : "Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.",
+            tk_label      : "KAMI YANG BERBAHAGIA",
+            /* nav */
+            nav_couple    : "Mempelai",
+            nav_event     : "Akad",
+            nav_counting  : "Counting",
+            nav_thanks    : "Thanks",
+        },
+        en: {
+            /* gatekeeper */
+            gt_label      : "WEDDING RECEPTION",
+            gt_to         : "Dear Mr./Mrs./Ladies & Gentlemen",
+            gt_btn        : "Open Invitation",
+            /* cover */
+            cv_label      : "WEDDING CELEBRATION",
+            cv_sub        : "THE WEDDING CELEBRATION",
+            /* quotes */
+            q_title       : "A Prayer",
+            q_text        : "\u201cAnd among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between your hearts...\u201d",
+            /* couple */
+            cp_salam      : "Assalamualaikum Wr. Wb.",
+            cp_intro      : "With the utmost respect, we would like to invite you to our wedding celebration:",
+            cp_putra      : "Son of",
+            cp_putri      : "Daughter of",
+            /* event */
+            ev_akad_title : "Akad Ceremony",
+            ev_akad_day   : "Friday",
+            ev_akad_time  : "At 08:30 WIB",
+            ev_akad_loc   : "Bride's Residence",
+            ev_res_title  : "Reception",
+            ev_res_day    : "Saturday",
+            ev_res_time   : "At 09:00 WIB - Until Finished",
+            ev_res_loc    : "Bride's Residence",
+            /* maps */
+            mp_title      : "Event Location",
+            mp_loc        : "Bride's Residence",
+            mp_btn        : "Get Directions",
+            /* counting */
+            ct_title      : "Counting Down",
+            ct_day        : "Days",
+            ct_hour       : "Hours",
+            ct_min        : "Minutes",
+            ct_sec        : "Seconds",
+            ct_text       : "The clock is ticking and we can't wait to celebrate this very special moment with you, our family and friends. It is our greatest honor to share our happiness with all of you.",
+            ct_ongoing    : "Event is Ongoing",
+            /* gift */
+            gf_intro      : "Your presence is the greatest gift we could hope for. However, if you wish to send a wedding gift, we have provided the following options",
+            gf_btn1       : "Click Here",
+            gf_btn2       : "Click Here",
+            gf_copy_rek   : "Copy Account No.",
+            gf_send_title : "Send a Gift",
+            gf_send_sub   : "You may send a gift to:",
+            gf_copy_almt  : "Copy Address",
+            gf_copied     : "Copied!",
+            /* rsvp */
+            rv_name       : "Name",
+            rv_att        : "Attendance",
+            rv_pick       : "Select Attendance",
+            rv_yes        : "Attending",
+            rv_no         : "Not Attending",
+            rv_msg        : "Message or Wishes",
+            rv_send       : "Submit",
+            rv_sending    : "Sending...",
+            rv_sent       : "\u2713 Sent!",
+            rv_fail       : "Failed, please try again",
+            rv_just_now   : "Just now",
+            /* thanks */
+            tk_title      : "Thank You",
+            tk_text       : "It would be our greatest joy if you could join us and share your blessings on this special occasion.",
+            tk_label      : "WITH LOVE",
+            /* nav */
+            nav_couple    : "Couple",
+            nav_event     : "Event",
+            nav_counting  : "Counting",
+            nav_thanks    : "Thanks",
         }
+    };
 
-        function changePage(pageId, navEl) {
-            // Reset animasi wa-* agar bisa replay saat balik ke halaman yang sama
-            document.querySelectorAll('section').forEach(sec => {
-                sec.classList.remove('active');
-                sec.querySelectorAll('.wa-t,.wa-l,.wa-r,.wa-s,.wa-u').forEach(el => {
-                    el.style.animationName = 'none';
-                    void el.offsetWidth; // force reflow
-                    el.style.animationName = '';
-                });
-            });
+    // Ambil terjemahan aktif
+    const T = TX[LANG];
 
-            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            navEl.classList.add('active');
+    // Helper: set teks elemen berdasarkan id
+    function setText(id, val) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+    }
 
-            // TAMBAHAN: pindahkan pill & scroll nav ke item
-            updateNavPill(navEl);
-            scrollNavTo(navEl);
-        }
+    // Terapkan semua terjemahan ke DOM
+    function applyTranslations() {
+        setText('i-gt-label',       T.gt_label);
+        setText('i-gt-to',          T.gt_to);
+        setText('i-gt-btn',         T.gt_btn);
+        setText('i-cv-label',       T.cv_label);
+        setText('i-cv-sub',         T.cv_sub);
+        setText('i-q-title',        T.q_title);
+        setText('i-q-text',         T.q_text);
+        setText('i-cp-salam',       T.cp_salam);
+        setText('i-cp-intro',       T.cp_intro);
+        setText('i-cp-putra',       T.cp_putra);
+        setText('i-cp-putri',       T.cp_putri);
+        setText('i-ev-akad-title',  T.ev_akad_title);
+        setText('i-ev-akad-day',    T.ev_akad_day);
+        setText('i-ev-akad-time',   T.ev_akad_time);
+        setText('i-ev-akad-loc',    T.ev_akad_loc);
+        setText('i-ev-res-title',   T.ev_res_title);
+        setText('i-ev-res-day',     T.ev_res_day);
+        setText('i-ev-res-time',    T.ev_res_time);
+        setText('i-ev-res-loc',     T.ev_res_loc);
+        setText('i-mp-title',       T.mp_title);
+        setText('i-mp-loc',         T.mp_loc);
+        setText('i-mp-btn',         T.mp_btn);
+        setText('i-ct-title',       T.ct_title);
+        setText('i-ct-day',         T.ct_day);
+        setText('i-ct-hour',        T.ct_hour);
+        setText('i-ct-min',         T.ct_min);
+        setText('i-ct-sec',         T.ct_sec);
+        setText('i-ct-text',        T.ct_text);
+        setText('i-gf-intro',       T.gf_intro);
+        setText('i-gf-btn1',        T.gf_btn1);
+        setText('i-gf-btn2',        T.gf_btn2);
+        setText('i-gf-copy-rek',    T.gf_copy_rek);
+        setText('i-gf-send-title',  T.gf_send_title);
+        setText('i-gf-send-sub',    T.gf_send_sub);
+        setText('i-gf-copy-almt',   T.gf_copy_almt);
+        setText('i-rv-name-lbl',    T.rv_name);
+        setText('i-rv-att-lbl',     T.rv_att);
+        setText('i-rv-pick',        T.rv_pick);
+        setText('i-rv-yes',         T.rv_yes);
+        setText('i-rv-no',          T.rv_no);
+        setText('i-rv-msg-lbl',     T.rv_msg);
+        setText('i-rv-send-btn',    T.rv_send);
+        setText('i-tk-title',       T.tk_title);
+        setText('i-tk-text',        T.tk_text);
+        setText('i-tk-label',       T.tk_label);
+        setText('i-nav-couple',     T.nav_couple);
+        setText('i-nav-event',      T.nav_event);
+        setText('i-nav-counting',   T.nav_counting);
+        setText('i-nav-thanks',     T.nav_thanks);
+        // Textarea placeholder
+        const ta = document.getElementById('ucapan');
+        if (ta) ta.placeholder = T.rv_msg;
+    }
 
-        function toggleMusic() {
-            const audio = document.getElementById('bgMusic');
-            const icon = document.getElementById('musicIcon');
-            if (audio.paused) {
-                audio.play(); icon.className = "fas fa-volume-up";
-            } else {
-                audio.pause(); icon.className = "fas fa-volume-mute";
-            }
-        }
+    // Jalankan segera
+    applyTranslations();
 
-        function toggleGiftDisplay(type) {
-            const rekBox = document.getElementById('gift-rekening');
-            const almtBox = document.getElementById('gift-alamat');
-            if(type === 'rekening') {
-                rekBox.style.display = 'block';
-                almtBox.style.display = 'none';
-            } else {
-                almtBox.style.display = 'block';
-                rekBox.style.display = 'none';
-            }
-        }
+    // ============================================================
+    // FUNGSI UTAMA (sama persis dengan kode asli)
+    // ============================================================
+    function openInvitation() {
+        const audio = document.getElementById('bgMusic');
+        audio.play().catch(() => {});
+        document.getElementById('gatekeeper').style.transform = "translateY(-100%)";
+        setTimeout(() => {
+            document.getElementById('bottom-nav').classList.add('active');
+            document.getElementById('sideControls').classList.add('show');
+            setTimeout(updateNavPill, 150);
+        }, 600);
+    }
 
-        function copyGiftText(text, btnId) {
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = document.getElementById(btnId);
-                const originalText = btn.innerText;
-                btn.innerText = "Berhasil Tersalin!";
-                btn.style.backgroundColor = "#2ecc71";
-                btn.style.color = "white";
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.backgroundColor = "var(--gold-main)";
-                    btn.style.color = "var(--maroon-deep)";
-                }, 2000);
-            });
-        }
-
-        const targetDate = new Date("Jun 12, 2026 08:30:00").getTime();
-        const countdownInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("days").innerHTML = d < 10 ? "0" + d : d;
-            document.getElementById("hours").innerHTML = h < 10 ? "0" + h : h;
-            document.getElementById("minutes").innerHTML = m < 10 ? "0" + m : m;
-            document.getElementById("seconds").innerHTML = s < 10 ? "0" + s : s;
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("counting").innerHTML = "<h2 class='counting-title'>Acara Sedang Berlangsung</h2>";
-            }
-        }, 1000);
-
-        /* =============================================
-           TAMBAHAN: Pill nav & auto-scroll
-        ============================================= */
-        function updateNavPill(activeEl) {
-            const pill = document.getElementById('nav-pill');
-            const nav  = document.getElementById('bottom-nav');
-            const target = activeEl || document.querySelector('.nav-item.active');
-            if (!target || !pill) return;
-            const navRect  = nav.getBoundingClientRect();
-            const itemRect = target.getBoundingClientRect();
-            const left = (itemRect.left - navRect.left) + nav.scrollLeft;
-            pill.style.left  = left + 'px';
-            pill.style.width = itemRect.width + 'px';
-        }
-
-        function scrollNavTo(navEl) {
-            const nav = document.getElementById('bottom-nav');
-            const navRect  = nav.getBoundingClientRect();
-            const itemRect = navEl.getBoundingClientRect();
-            const offset   = nav.scrollLeft + (itemRect.left + itemRect.width / 2) - (navRect.left + navRect.width / 2);
-            nav.scrollTo({ left: offset, behavior: 'smooth' });
-            setTimeout(() => updateNavPill(navEl), 320);
-        }
-
-        document.getElementById('bottom-nav').addEventListener('scroll', () => updateNavPill());
-
-        // =============================================
-        // TAMBAHAN: RSVP → Google Sheets
-        // =============================================
-        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycaxXOkTTnGAJMl6_6W9Hbp6rwN2BZTabMxxh9h6Kf-hxFrWOI7nQ7wmm1lLomblfb/exec";
-
-        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('.btn-send-rsvp');
-            btn.innerText = "Mengirim...";
-            btn.disabled = true;
-
-            const data = {
-                nama      : document.getElementById('nama').value,
-                kehadiran : document.getElementById('kehadiran').value,
-                ucapan    : document.getElementById('ucapan').value
-            };
-
-            fetch(APPS_SCRIPT_URL, {
-                method : "POST",
-                mode   : "no-cors",
-                headers: { "Content-Type": "application/json" },
-                body   : JSON.stringify(data)
-            })
-            .then(() => {
-                btn.innerText = "✓ Terkirim!";
-                btn.style.background = "#2ecc71";
-                btn.style.color = "white";
-
-                // Reset form
-                document.getElementById('nama').value      = "";
-                document.getElementById('kehadiran').value = "";
-                document.getElementById('ucapan').value    = "";
-
-                // Tambah komentar baru ke tampilan langsung
-                const container = document.querySelector('.comment-container');
-                const badge = data.kehadiran === "Hadir"
-                    ? `<span class="badge-hadir">Hadir</span>`
-                    : `<span class="badge-hadir" style="background:#fce4ec;color:#c62828;">Tidak Hadir</span>`;
-                const inisial = data.nama.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
-                const newComment = `
-                    <div class="comment-item" style="animation: fadeIn 0.5s ease;">
-                        <div class="avatar">${inisial}</div>
-                        <div class="comment-body">
-                            <div style="display:flex;align-items:center;">
-                                <span class="comment-name">${data.nama}</span>${badge}
-                            </div>
-                            <p class="comment-text">${data.ucapan || '—'}</p>
-                            <span class="comment-date">Baru saja</span>
-                        </div>
-                    </div>`;
-                container.insertAdjacentHTML('afterbegin', newComment);
-
-                // Kembalikan tombol setelah 3 detik
-                setTimeout(() => {
-                    btn.innerText = "Kirim";
-                    btn.style.background = "var(--gold-main)";
-                    btn.style.color = "var(--maroon-deep)";
-                    btn.disabled = false;
-                }, 3000);
-            })
-            .catch(() => {
-                btn.innerText = "Gagal, coba lagi";
-                btn.style.background = "#e74c3c";
-                btn.style.color = "white";
-                btn.disabled = false;
+    function changePage(pageId, navEl) {
+        document.querySelectorAll('section').forEach(sec => {
+            sec.classList.remove('active');
+            sec.querySelectorAll('.wa-t,.wa-l,.wa-r,.wa-s,.wa-u').forEach(el => {
+                el.style.animationName = 'none';
+                void el.offsetWidth;
+                el.style.animationName = '';
             });
         });
-        // =============================================
-        // TAMBAHAN: Auto-slide halaman
-        // =============================================
-        const pages = ["cover-page","quotes","couple","event","maps","counting","gift","rsvp","thanks"];
-        let currentIndex = 0;
-        let autoSlideTimer = null;
-        let manualResetTimer = null;
+        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        navEl.classList.add('active');
+        updateNavPill(navEl);
+        scrollNavTo(navEl);
+    }
 
-        function startAutoSlide() {
-            clearTimeout(autoSlideTimer);
-            const scrollSections = ["rsvp","couple"];
-            const delay = scrollSections.includes(pages[currentIndex]) ? 8000 : 5000;
-            autoSlideTimer = setTimeout(function() {
-                currentIndex = (currentIndex + 1) % pages.length;
-                const pageId = pages[currentIndex];
-                const navEl = document.querySelector(".nav-item[onclick*='" + pageId + "']");
-                if (navEl) {
-                    document.querySelectorAll("section").forEach(sec => {
-                        sec.classList.remove("active");
-                        sec.querySelectorAll(".wa-t,.wa-l,.wa-r,.wa-s,.wa-u").forEach(el => {
-                            el.style.animationName = "none";
-                            void el.offsetWidth;
-                            el.style.animationName = "";
-                        });
-                    });
-                    document.querySelectorAll(".nav-item").forEach(nav => nav.classList.remove("active"));
-                    document.getElementById(pageId).classList.add("active");
-                    navEl.classList.add("active");
-                    updateNavPill(navEl);
-                    scrollNavTo(navEl);
-                }
-                startAutoSlide();
-            }, delay);
+    function toggleMusic() {
+        const audio = document.getElementById('bgMusic');
+        const icon  = document.getElementById('musicIcon');
+        if (audio.paused) { audio.play(); icon.className = "fas fa-volume-up"; }
+        else              { audio.pause(); icon.className = "fas fa-volume-mute"; }
+    }
+
+    function toggleGiftDisplay(type) {
+        document.getElementById('gift-rekening').style.display = type === 'rekening' ? 'block' : 'none';
+        document.getElementById('gift-alamat').style.display   = type === 'alamat'   ? 'block' : 'none';
+    }
+
+    function copyGiftText(text, btnId) {
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById(btnId);
+            const ori = btn.innerText;
+            btn.innerText = T.gf_copied;
+            btn.style.backgroundColor = "#2ecc71";
+            btn.style.color = "white";
+            setTimeout(() => {
+                btn.innerText = ori;
+                btn.style.backgroundColor = "var(--gold-main)";
+                btn.style.color = "var(--maroon-deep)";
+            }, 2000);
+        });
+    }
+
+    // Countdown
+    const targetDate = new Date("Jun 12, 2026 08:30:00").getTime();
+    const countdownInterval = setInterval(function() {
+        const now      = new Date().getTime();
+        const distance = targetDate - now;
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("counting").innerHTML = "<h2 class='counting-title'>" + T.ct_ongoing + "</h2>";
+            return;
         }
+        const d = Math.floor(distance / (1000*60*60*24));
+        const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+        const m = Math.floor((distance % (1000*60*60)) / (1000*60));
+        const s = Math.floor((distance % (1000*60)) / 1000);
+        document.getElementById("days").innerHTML    = d < 10 ? "0"+d : d;
+        document.getElementById("hours").innerHTML   = h < 10 ? "0"+h : h;
+        document.getElementById("minutes").innerHTML = m < 10 ? "0"+m : m;
+        document.getElementById("seconds").innerHTML = s < 10 ? "0"+s : s;
+    }, 1000);
 
-        // Override openInvitation untuk mulai auto-slide
-        const _origOpen = openInvitation;
-        openInvitation = function() {
-            _origOpen();
-            setTimeout(startAutoSlide, 6000);
+    // Nav pill
+    function updateNavPill(activeEl) {
+        const pill   = document.getElementById('nav-pill');
+        const nav    = document.getElementById('bottom-nav');
+        const target = activeEl || document.querySelector('.nav-item.active');
+        if (!target || !pill) return;
+        const navRect  = nav.getBoundingClientRect();
+        const itemRect = target.getBoundingClientRect();
+        pill.style.left  = (itemRect.left - navRect.left) + nav.scrollLeft + 'px';
+        pill.style.width = itemRect.width + 'px';
+    }
+
+    function scrollNavTo(navEl) {
+        const nav      = document.getElementById('bottom-nav');
+        const navRect  = nav.getBoundingClientRect();
+        const itemRect = navEl.getBoundingClientRect();
+        nav.scrollTo({ left: nav.scrollLeft + (itemRect.left + itemRect.width/2) - (navRect.left + navRect.width/2), behavior:'smooth' });
+        setTimeout(() => updateNavPill(navEl), 320);
+    }
+
+    document.getElementById('bottom-nav').addEventListener('scroll', () => updateNavPill());
+
+    // RSVP → Google Sheets
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycaxXOkTTnGAJMl6_6W9Hbp6rwN2BZTabMxxh9h6Kf-hxFrWOI7nQ7wmm1lLomblfb/exec";
+
+    document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('i-rv-send-btn');
+        btn.innerText = T.rv_sending;
+        btn.disabled  = true;
+
+        const data = {
+            nama      : document.getElementById('nama').value,
+            kehadiran : document.getElementById('kehadiran').value,
+            ucapan    : document.getElementById('ucapan').value
         };
 
-        // Override changePage untuk pause 15 detik saat manual
-        const _origChange = changePage;
-        changePage = function(pageId, navEl) {
-            _origChange(pageId, navEl);
-            currentIndex = pages.indexOf(pageId);
-            clearTimeout(autoSlideTimer);
-            clearTimeout(manualResetTimer);
-            manualResetTimer = setTimeout(startAutoSlide, 15000);
-        };
+        fetch(APPS_SCRIPT_URL, {
+            method : "POST", mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body   : JSON.stringify(data)
+        })
+        .then(() => {
+            btn.innerText        = T.rv_sent;
+            btn.style.background = "#2ecc71";
+            btn.style.color      = "white";
+
+            document.getElementById('nama').value      = "";
+            document.getElementById('kehadiran').value = "";
+            document.getElementById('ucapan').value    = "";
+
+            const container = document.querySelector('.comment-container');
+            const isAttend  = data.kehadiran === "Hadir" || data.kehadiran === "Attending";
+            const badge     = isAttend
+                ? `<span class="badge-hadir">${T.rv_yes}</span>`
+                : `<span class="badge-hadir" style="background:#fce4ec;color:#c62828;">${T.rv_no}</span>`;
+            const inisial = data.nama.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+            container.insertAdjacentHTML('afterbegin', `
+                <div class="comment-item" style="animation:fadeIn 0.5s ease;">
+                    <div class="avatar">${inisial}</div>
+                    <div class="comment-body">
+                        <div style="display:flex;align-items:center;">
+                            <span class="comment-name">${data.nama}</span>${badge}
+                        </div>
+                        <p class="comment-text">${data.ucapan || '—'}</p>
+                        <span class="comment-date">${T.rv_just_now}</span>
+                    </div>
+                </div>`);
+
+            setTimeout(() => {
+                btn.innerText        = T.rv_send;
+                btn.style.background = "var(--gold-main)";
+                btn.style.color      = "var(--maroon-deep)";
+                btn.disabled         = false;
+            }, 3000);
+        })
+        .catch(() => {
+            btn.innerText        = T.rv_fail;
+            btn.style.background = "#e74c3c";
+            btn.style.color      = "white";
+            btn.disabled         = false;
+        });
+    });
+
+    // Auto-slide
+    const pages = ["cover-page","quotes","couple","event","maps","counting","gift","rsvp","thanks"];
+    let currentIndex = 0, autoSlideTimer = null, manualResetTimer = null;
+
+    function startAutoSlide() {
+        clearTimeout(autoSlideTimer);
+        const delay = ["rsvp","couple"].includes(pages[currentIndex]) ? 8000 : 5000;
+        autoSlideTimer = setTimeout(function() {
+            currentIndex = (currentIndex + 1) % pages.length;
+            const pageId = pages[currentIndex];
+            const navEl  = document.querySelector(".nav-item[onclick*='" + pageId + "']");
+            if (navEl) {
+                document.querySelectorAll("section").forEach(sec => {
+                    sec.classList.remove("active");
+                    sec.querySelectorAll(".wa-t,.wa-l,.wa-r,.wa-s,.wa-u").forEach(el => {
+                        el.style.animationName = "none";
+                        void el.offsetWidth;
+                        el.style.animationName = "";
+                    });
+                });
+                document.querySelectorAll(".nav-item").forEach(nav => nav.classList.remove("active"));
+                document.getElementById(pageId).classList.add("active");
+                navEl.classList.add("active");
+                updateNavPill(navEl);
+                scrollNavTo(navEl);
+            }
+            startAutoSlide();
+        }, delay);
+    }
+
+    const _origOpen = openInvitation;
+    openInvitation = function() { _origOpen(); setTimeout(startAutoSlide, 6000); };
+
+    const _origChange = changePage;
+    changePage = function(pageId, navEl) {
+        _origChange(pageId, navEl);
+        currentIndex = pages.indexOf(pageId);
+        clearTimeout(autoSlideTimer);
+        clearTimeout(manualResetTimer);
+        manualResetTimer = setTimeout(startAutoSlide, 15000);
+    };
     </script>
 </body>
 </html>
-
-<script>
-// =============================================
-// SISTEM BILINGUAL — URL Parameter ?lang=en
-// =============================================
-const translations = {
-    id: {
-        // Gatekeeper
-        resepsi_label   : "RESEPSI PERNIKAHAN",
-        to_label        : "Kepada Yth. Bapak/Ibu/Saudara/i",
-        open_btn        : "Buka Undangan",
-        // Cover
-        cover_label     : "WALIMATUL 'URSY",
-        cover_sub       : "THE WEDDING CELEBRATION",
-        // Quotes
-        quotes_title    : "Kutipan Doa",
-        quotes_text     : '"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya..."',
-        // Couple
-        salam           : "Assalamualaikum Wr. Wb.",
-        couple_intro    : "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami:",
-        putra           : "Putra Pertama dari",
-        putri           : "Putri Kedua dari",
-        // Event
-        akad_title      : "Akad Nikah",
-        akad_day        : "Jumat",
-        akad_time       : "Pukul 08:30 WIB",
-        resepsi_title   : "Resepsi",
-        resepsi_day     : "Sabtu",
-        resepsi_time    : "Pukul 09:00 WIB - Selesai",
-        location_title  : "Kediaman Mempelai Wanita",
-        // Maps
-        maps_title      : "Lokasi Acara",
-        maps_btn        : "Petunjuk Ke Lokasi",
-        // Counting
-        counting_title  : "Menghitung Hari",
-        counting_text   : "Jam terus berdetik, kami tidak sabar untuk merayakannya bersama Anda, keluarga dan teman-teman kami di momen yang sangat spesial ini. Merupakan suatu kehormatan bagi kami untuk berbagi kebahagiaan kami dengan Anda semua.",
-        day_label       : "Hari",
-        hour_label      : "Jam",
-        minute_label    : "Menit",
-        second_label    : "Detik",
-        // Gift
-        gift_intro      : "Kehadiran anda merupakan hadiah terbaik yang bisa kami harapkan. Namun jika anda bermaksud untuk mengirimkan hadiah pernikahan lain, kami sediakan fitur berikut",
-        gift_send       : "Kirim Kado",
-        gift_send_sub   : "Anda dapat mengirim kado ke:",
-        copy_rek        : "Salin Rekening",
-        copy_almt       : "Salin Alamat",
-        // RSVP
-        rsvp_name       : "Nama",
-        rsvp_attend     : "Kehadiran",
-        rsvp_pick       : "Pilih Kehadiran",
-        rsvp_yes        : "Hadir",
-        rsvp_no         : "Tidak Hadir",
-        rsvp_msg        : "Komentar atau Ucapan",
-        rsvp_send       : "Kirim",
-        // Thanks
-        thanks_title    : "Terima Kasih",
-        thanks_text     : "Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.",
-        thanks_label    : "KAMI YANG BERBAHAGIA",
-        // Nav
-        nav_couple      : "Mempelai",
-        nav_event       : "Akad",
-    },
-    en: {
-        // Gatekeeper
-        resepsi_label   : "WEDDING RECEPTION",
-        to_label        : "Dear Mr./Mrs./Ladies & Gentlemen",
-        open_btn        : "Open Invitation",
-        // Cover
-        cover_label     : "WEDDING CELEBRATION",
-        cover_sub       : "THE WEDDING CELEBRATION",
-        // Quotes
-        quotes_title    : "A Prayer",
-        quotes_text     : '"And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between your hearts..."',
-        // Couple
-        salam           : "Assalamualaikum Wr. Wb.",
-        couple_intro    : "With the utmost respect, we would like to invite you to our wedding celebration:",
-        putra           : "First Son of",
-        putri           : "Second Daughter of",
-        // Event
-        akad_title      : "Akad Ceremony",
-        akad_day        : "Friday",
-        akad_time       : "At 08:30 WIB",
-        resepsi_title   : "Reception",
-        resepsi_day     : "Saturday",
-        resepsi_time    : "At 09:00 WIB - Until Finished",
-        location_title  : "Bride\'s Residence",
-        // Maps
-        maps_title      : "Event Location",
-        maps_btn        : "Get Directions",
-        // Counting
-        counting_title  : "Counting Down",
-        counting_text   : "The clock is ticking and we can\'t wait to celebrate this very special moment with you, our family and friends. It is our greatest honor to share our happiness with all of you.",
-        day_label       : "Days",
-        hour_label      : "Hours",
-        minute_label    : "Minutes",
-        second_label    : "Seconds",
-        // Gift
-        gift_intro      : "Your presence is the greatest gift we could hope for. However, if you wish to send a wedding gift, we have provided the following options",
-        gift_send       : "Send a Gift",
-        gift_send_sub   : "You may send a gift to:",
-        copy_rek        : "Copy Account",
-        copy_almt       : "Copy Address",
-        // RSVP
-        rsvp_name       : "Name",
-        rsvp_attend     : "Attendance",
-        rsvp_pick       : "Select Attendance",
-        rsvp_yes        : "Attending",
-        rsvp_no         : "Not Attending",
-        rsvp_msg        : "Message or Wishes",
-        rsvp_send       : "Submit",
-        // Thanks
-        thanks_title    : "Thank You",
-        thanks_text     : "It would be our greatest joy if you could join us and share your blessings on this special occasion.",
-        thanks_label    : "WITH LOVE",
-        // Nav
-        nav_couple      : "Couple",
-        nav_event       : "Event",
-    }
-};
-
-function applyLang(lang) {
-    const t = translations[lang] || translations['id'];
-    const q = (sel) => document.querySelector(sel);
-    const qa = (sel) => document.querySelectorAll(sel);
-
-    // Gatekeeper
-    q('#gatekeeper [style*="RESEPSI"]')                                         && (q('#gatekeeper [style*="RESEPSI"]').textContent = t.resepsi_label);
-    q('#gatekeeper [style*="letter-spacing: 1px"]')                             && (q('#gatekeeper [style*="letter-spacing: 1px"]').textContent = t.to_label);
-    q('.btn-open')                                                               && (q('.btn-open').innerHTML = '<i class="fas fa-envelope-open"></i> ' + t.open_btn);
-
-    // Cover
-    q('#cover-page .wa-t.wa-3')                                                 && (q('#cover-page .wa-t.wa-3').textContent = t.cover_label);
-    q('#cover-page .wa-u.wa-5')                                                 && (q('#cover-page .wa-u.wa-5').textContent = t.cover_sub);
-
-    // Quotes
-    q('#quotes h2')                                                              && (q('#quotes h2').textContent = t.quotes_title);
-    q('#quotes .wa-l')                                                           && (q('#quotes .wa-l').textContent = t.quotes_text);
-
-    // Couple
-    q('#couple .salam')                                                          && (q('#couple .salam').textContent = t.salam);
-    q('#couple .wa-t.wa-2')                                                      && (q('#couple .wa-t.wa-2').textContent = t.couple_intro);
-    const parentNames = qa('#couple .parent-name');
-    if (parentNames[0]) parentNames[0].innerHTML = t.putra + ' <br><b>Bapak Herman & Ibu Maznun</b>';
-    if (parentNames[1]) parentNames[1].innerHTML = t.putri + ' <br><b>Bapak M.Nasir & Ibu Oyi</b>';
-
-    // Event
-    const eventTitles = qa('.event-title');
-    if (eventTitles[0]) eventTitles[0].textContent = t.akad_title;
-    if (eventTitles[1]) eventTitles[1].textContent = t.resepsi_title;
-    const eventDays = qa('.event-day');
-    if (eventDays[0]) eventDays[0].textContent = t.akad_day;
-    if (eventDays[1]) eventDays[1].textContent = t.resepsi_day;
-    const eventTimes = qa('.event-time');
-    if (eventTimes[0]) eventTimes[0].textContent = t.akad_time;
-    if (eventTimes[1]) eventTimes[1].textContent = t.resepsi_time;
-    qa('.event-location-title').forEach(el => el.textContent = t.location_title);
-
-    // Maps
-    q('#maps h2')                                                                && (q('#maps h2').textContent = t.maps_title);
-    q('#maps strong')                                                            && (q('#maps strong').textContent = t.location_title);
-    q('.btn-maps')                                                               && (q('.btn-maps').innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + t.maps_btn);
-
-    // Counting
-    q('.counting-title')                                                         && (q('.counting-title').textContent = t.counting_title);
-    q('.counting-text')                                                          && (q('.counting-text').textContent = t.counting_text);
-    qa('.timer-label')[0]                                                        && (qa('.timer-label')[0].textContent = t.day_label);
-    qa('.timer-label')[1]                                                        && (qa('.timer-label')[1].textContent = t.hour_label);
-    qa('.timer-label')[2]                                                        && (qa('.timer-label')[2].textContent = t.minute_label);
-    qa('.timer-label')[3]                                                        && (qa('.timer-label')[3].textContent = t.second_label);
-
-    // Gift
-    q('.gift-instruction-text')                                                  && (q('.gift-instruction-text').textContent = t.gift_intro);
-    q('#gift-alamat [style*="1.2rem"]')                                          && (q('#gift-alamat [style*="1.2rem"]').textContent = t.gift_send);
-    q('#gift-alamat [style*="0.8rem"]')                                          && (q('#gift-alamat [style*="0.8rem"]').textContent = t.gift_send_sub);
-    q('#copy-btn-rek')                                                           && (q('#copy-btn-rek').textContent = t.copy_rek);
-    q('#copy-btn-almt')                                                          && (q('#copy-btn-almt').textContent = t.copy_almt);
-
-    // RSVP
-    q('label[for="nama"]')                                                       && (q('label[for="nama"]').textContent = t.rsvp_name);
-    q('label[for="kehadiran"]')                                                  && (q('label[for="kehadiran"]').textContent = t.rsvp_attend);
-    q('label[for="ucapan"]')                                                     && (q('label[for="ucapan"]').textContent = t.rsvp_msg);
-    q('#kehadiran option[disabled]')                                             && (q('#kehadiran option[disabled]').textContent = t.rsvp_pick);
-    q('#kehadiran option[value="Hadir"]')                                        && (q('#kehadiran option[value="Hadir"]').textContent = t.rsvp_yes);
-    q('#kehadiran option[value="Tidak Hadir"]')                                  && (q('#kehadiran option[value="Tidak Hadir"]').textContent = t.rsvp_no);
-    q('textarea#ucapan')                                                         && (q('textarea#ucapan').placeholder = t.rsvp_msg);
-    q('.btn-send-rsvp')                                                          && (q('.btn-send-rsvp').textContent = t.rsvp_send);
-
-    // Thanks
-    q('.thanks-title')                                                           && (q('.thanks-title').textContent = t.thanks_title);
-    q('.thanks-text')                                                            && (q('.thanks-text').textContent = t.thanks_text);
-    q('.wa-u.wa-4[style*="letter-spacing"]')                                    && (q('.wa-u.wa-4[style*="letter-spacing"]').textContent = t.thanks_label);
-
-    // Nav labels
-    q('.nav-item[onclick*="couple"] span')                                       && (q('.nav-item[onclick*="couple"] span').textContent = t.nav_couple);
-    q('.nav-item[onclick*="event"] span')                                        && (q('.nav-item[onclick*="event"] span').textContent = t.nav_event);
-}
-
-// Deteksi ?lang=en dari URL dan terapkan
-(function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lang = urlParams.get('lang') === 'en' ? 'en' : 'id';
-    if (lang === 'en') {
-        // Tunggu DOM siap
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => applyLang('en'));
-        } else {
-            applyLang('en');
-        }
-    }
-})();
-</script>
