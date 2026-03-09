@@ -818,8 +818,8 @@
 
         if (rawNama && rawNama.trim() !== '') {
             const nama = decodeURIComponent(rawNama).trim();
+            // Nama tamu tampil di bawah sapaan yang sudah lengkap dari applyTranslations()
             namaEl.textContent = nama;
-            sapaanEl.textContent = LANG === 'en' ? 'Dear,' : 'Kepada Yth.';
         } else {
             namaEl.textContent = '';
         }
