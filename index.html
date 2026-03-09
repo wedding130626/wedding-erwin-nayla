@@ -349,7 +349,7 @@
             <h1 class="names">Erwin &amp; Nayla</h1>
             <div style="margin-bottom:25px;background:rgba(0,0,0,0.3);padding:15px;border-radius:15px;backdrop-filter:blur(2px);">
                 <p id="i-gt-to" style="font-size:0.8rem;letter-spacing:1px;"></p>
-                <div style="font-size:1.3rem;font-weight:700;color:var(--gold-light);"></div>
+                <div id="gt-guest-name" style="font-size:1.3rem;font-weight:700;color:var(--gold-light);"></div>
             </div>
             <button class="btn-open" onclick="openInvitation()">
                 <i class="fas fa-envelope-open"></i> <span id="i-gt-btn"></span>
@@ -607,6 +607,8 @@
             cp_intro      : "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami:",
             cp_putra      : "Putra dari",
             cp_putri      : "Putri dari",
+            mr            : "Bapak ",
+            mrs           : "Ibu ",
             /* event */
             ev_akad_title : "Akad Nikah",
             ev_akad_day   : "Jumat",
@@ -675,6 +677,8 @@
             cp_intro      : "With the utmost respect, we would like to invite you to our wedding celebration:",
             cp_putra      : "Son of",
             cp_putri      : "Daughter of",
+            mr            : "Mr. ",
+            mrs           : "Mrs. ",
             /* event */
             ev_akad_title : "Akad Ceremony",
             ev_akad_day   : "Friday",
@@ -751,6 +755,12 @@
         setText('i-cp-intro',       T.cp_intro);
         setText('i-cp-putra',       T.cp_putra);
         setText('i-cp-putri',       T.cp_putri);
+        // Ganti label Bapak/Ibu sesuai bahasa
+        document.querySelectorAll('.parent-name b').forEach(el => {
+            el.innerHTML = el.innerHTML
+                .replace(/Bapak /g, T.mr)
+                .replace(/Ibu /g, T.mrs);
+        });
         setText('i-ev-akad-title',  T.ev_akad_title);
         setText('i-ev-akad-day',    T.ev_akad_day);
         setText('i-ev-akad-time',   T.ev_akad_time);
@@ -796,6 +806,24 @@
 
     // Jalankan segera
     applyTranslations();
+
+    // ============================================================
+    // NAMA TAMU DARI URL — ?nama=Ahmad%20Fauzi
+    // ============================================================
+    (function() {
+        const params   = new URLSearchParams(window.location.search);
+        const rawNama  = params.get('nama');
+        const namaEl   = document.getElementById('gt-guest-name');
+        const sapaanEl = document.getElementById('i-gt-to');
+
+        if (rawNama && rawNama.trim() !== '') {
+            const nama = decodeURIComponent(rawNama).trim();
+            namaEl.textContent = nama;
+            sapaanEl.textContent = LANG === 'en' ? 'Dear,' : 'Kepada Yth.';
+        } else {
+            namaEl.textContent = '';
+        }
+    })();
 
     // ============================================================
     // FUNGSI UTAMA (sama persis dengan kode asli)
