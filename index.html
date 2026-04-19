@@ -241,11 +241,71 @@
             padding: 12px; border: none; border-radius: 25px; font-weight: 700; cursor: pointer;
         }
 
-        .comment-container { margin-top: 20px; width: 100%; max-width: 400px; max-height: 250px; overflow-y: auto; }
+        /* ===== COMMENT SECTION ===== */
+        .comment-section-header {
+            width: 100%; max-width: 400px;
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 12px;
+        }
+        .comment-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem; font-weight: 700;
+            color: var(--gold-main); letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        .comment-section-line {
+            flex: 1; height: 1px;
+            background: linear-gradient(to right, var(--gold-main), transparent);
+        }
+        .comment-count-badge {
+            background: var(--gold-main); color: var(--maroon-deep);
+            font-size: 0.65rem; font-weight: 700;
+            padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+        }
+
+        .comment-container {
+            width: 100%; max-width: 400px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+
+        /* Loading skeleton */
+        .comment-skeleton {
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px; padding: 12px;
+            display: flex; gap: 10px; align-items: flex-start;
+            animation: shimmer 1.5s infinite;
+        }
+        .skeleton-avatar {
+            width: 35px; height: 35px; border-radius: 50%;
+            background: rgba(255,255,255,0.15); flex-shrink: 0;
+        }
+        .skeleton-lines { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+        .skeleton-line {
+            height: 10px; border-radius: 5px;
+            background: rgba(255,255,255,0.15);
+        }
+        .skeleton-line.short { width: 40%; }
+        .skeleton-line.medium { width: 70%; }
+        .skeleton-line.long { width: 100%; }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Empty state */
+        .comment-empty {
+            text-align: center; padding: 20px;
+            color: rgba(255,255,255,0.4); font-size: 0.8rem;
+        }
+        .comment-empty i { font-size: 2rem; margin-bottom: 8px; display: block; color: var(--gold-main); opacity: 0.4; }
 
         .comment-item {
-            background: white; color: #333; padding: 12px; border-radius: 10px;
-            display: flex; gap: 10px; margin-bottom: 10px; text-align: left;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333; padding: 12px; border-radius: 10px;
+            display: flex; gap: 10px; text-align: left;
+            animation: fadeIn 0.5s ease;
+            border-left: 3px solid var(--gold-main);
         }
 
         .avatar {
@@ -255,6 +315,7 @@
         }
 
         .badge-hadir { background: #e1f5fe; color: #0288d1; font-size: 0.6rem; padding: 2px 6px; border-radius: 5px; font-weight: 700; margin-left: 5px; }
+        .badge-tidak { background: #fce4ec; color: #c62828; font-size: 0.6rem; padding: 2px 6px; border-radius: 5px; font-weight: 700; margin-left: 5px; }
         .comment-name { font-weight: 700; font-size: 0.85rem; }
         .comment-text { font-size: 0.8rem; margin: 3px 0; }
         .comment-date { font-size: 0.65rem; color: #888; }
@@ -520,17 +581,34 @@
                     </div>
                     <button type="submit" id="i-rv-send-btn" class="btn-send-rsvp"></button>
                 </form>
-                <hr style="width:100%;border:0.5px solid rgba(255,255,255,0.2);margin:25px 0;">
-                <div class="comment-container">
-                    <div class="comment-item">
-                        <div class="avatar">BF</div>
-                        <div class="comment-body">
-                            <div style="display:flex;align-items:center;">
-                                <span class="comment-name">Bro Fachran</span>
-                                <span class="badge-hadir">Hadir</span>
-                            </div>
-                            <p class="comment-text">Selamat menikah Bobbs, semoga bahagia bersama terus sampe kakek nenek! 😄</p>
-                            <span class="comment-date">13 September 2025 at 18.39</span>
+
+                <!-- DIVIDER -->
+                <hr style="width:100%;max-width:400px;border:0.5px solid rgba(255,255,255,0.2);margin:25px 0;">
+
+                <!-- HEADER KOMENTAR -->
+                <div class="comment-section-header">
+                    <span class="comment-section-title" id="i-rv-comment-title">UCAPAN & DOA</span>
+                    <div class="comment-section-line"></div>
+                    <span class="comment-count-badge" id="comment-count-badge">0</span>
+                </div>
+
+                <!-- DAFTAR KOMENTAR -->
+                <div class="comment-container" id="comment-list">
+                    <!-- Skeleton loading -->
+                    <div class="comment-skeleton" id="skel-1">
+                        <div class="skeleton-avatar"></div>
+                        <div class="skeleton-lines">
+                            <div class="skeleton-line short"></div>
+                            <div class="skeleton-line long"></div>
+                            <div class="skeleton-line medium"></div>
+                        </div>
+                    </div>
+                    <div class="comment-skeleton" id="skel-2">
+                        <div class="skeleton-avatar"></div>
+                        <div class="skeleton-lines">
+                            <div class="skeleton-line short"></div>
+                            <div class="skeleton-line long"></div>
+                            <div class="skeleton-line medium"></div>
                         </div>
                     </div>
                 </div>
@@ -586,247 +664,83 @@
 
     <script>
     // ============================================================
-    // BILINGUAL SYSTEM — ?lang=en  /  default = id
+    // BILINGUAL SYSTEM
     // ============================================================
     const LANG = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'id';
 
     const TX = {
         id: {
-            /* gatekeeper */
-            gt_label      : "RESEPSI PERNIKAHAN",
-            gt_to         : "Kepada Yth. Bapak/Ibu/Saudara/i",
-            gt_btn        : "Buka Undangan",
-            /* cover */
-            cv_label      : "WALIMATUL 'URSY",
-            cv_sub        : "THE WEDDING CELEBRATION",
-            /* quotes */
-            q_title       : "Kutipan Doa",
-            q_text        : "\u201cDan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya...\u201d",
-            /* couple */
-            cp_salam      : "Assalamualaikum Wr. Wb.",
-            cp_intro      : "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami:",
-            cp_putra      : "Putra dari",
-            cp_putri      : "Putri dari",
-            mr            : "Bapak ",
-            mrs           : "Ibu ",
-            /* event */
-            ev_akad_title : "Akad Nikah",
-            ev_akad_day   : "Jumat",
-            ev_akad_time  : "Pukul 08:30 WIB",
-            ev_akad_loc   : "Kediaman Mempelai Wanita",
-            ev_res_title  : "Resepsi",
-            ev_res_day    : "Sabtu",
-            ev_res_time   : "Pukul 09:00 WIB - Selesai",
-            ev_res_loc    : "Kediaman Mempelai Wanita",
-            /* maps */
-            mp_title      : "Lokasi Acara",
-            mp_loc        : "Kediaman Mempelai Wanita",
-            mp_btn        : "Petunjuk Ke Lokasi",
-            /* counting */
-            ct_title      : "Menghitung Hari",
-            ct_day        : "Hari",
-            ct_hour       : "Jam",
-            ct_min        : "Menit",
-            ct_sec        : "Detik",
-            ct_text       : "Jam terus berdetik, kami tidak sabar untuk merayakannya bersama Anda, keluarga dan teman-teman kami di momen yang sangat spesial ini. Merupakan suatu kehormatan bagi kami untuk berbagi kebahagiaan kami dengan Anda semua.",
-            ct_ongoing    : "Acara Sedang Berlangsung",
-            /* gift */
-            gf_intro      : "Kehadiran anda merupakan hadiah terbaik yang bisa kami harapkan. Namun jika anda bermaksud untuk mengirimkan hadiah pernikahan lain, kami sediakan fitur berikut",
-            gf_btn1       : "Klik Disini",
-            gf_btn2       : "Klik Disini",
-            gf_copy_rek   : "Salin Rekening",
-            gf_send_title : "Kirim Kado",
-            gf_send_sub   : "Anda dapat mengirim kado ke:",
-            gf_copy_almt  : "Salin Alamat",
-            gf_copied     : "Berhasil Tersalin!",
-            /* rsvp */
-            rv_name       : "Nama",
-            rv_att        : "Kehadiran",
-            rv_pick       : "Pilih Kehadiran",
-            rv_yes        : "Hadir",
-            rv_no         : "Tidak Hadir",
-            rv_msg        : "Komentar atau Ucapan",
-            rv_send       : "Kirim",
-            rv_sending    : "Mengirim...",
-            rv_sent       : "\u2713 Terkirim!",
-            rv_fail       : "Gagal, coba lagi",
-            rv_just_now   : "Baru saja",
-            /* thanks */
-            tk_title      : "Terima Kasih",
-            tk_text       : "Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.",
-            tk_label      : "KAMI YANG BERBAHAGIA",
-            /* nav */
-            nav_couple    : "Mempelai",
-            nav_event     : "Akad",
-            nav_counting  : "Counting",
-            nav_thanks    : "Thanks",
+            gt_label:"RESEPSI PERNIKAHAN",gt_to:"Kepada Yth. Bapak/Ibu/Saudara/i",gt_btn:"Buka Undangan",
+            cv_label:"WALIMATUL 'URSY",cv_sub:"THE WEDDING CELEBRATION",
+            q_title:"Kutipan Doa",q_text:"\u201cDan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya...\u201d",
+            cp_salam:"Assalamualaikum Wr. Wb.",cp_intro:"Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami:",cp_putra:"Putra dari",cp_putri:"Putri dari",mr:"Bapak ",mrs:"Ibu ",
+            ev_akad_title:"Akad Nikah",ev_akad_day:"Jumat",ev_akad_time:"Pukul 08:30 WIB",ev_akad_loc:"Kediaman Mempelai Wanita",ev_res_title:"Resepsi",ev_res_day:"Sabtu",ev_res_time:"Pukul 09:00 WIB - Selesai",ev_res_loc:"Kediaman Mempelai Wanita",
+            mp_title:"Lokasi Acara",mp_loc:"Kediaman Mempelai Wanita",mp_btn:"Petunjuk Ke Lokasi",
+            ct_title:"Menghitung Hari",ct_day:"Hari",ct_hour:"Jam",ct_min:"Menit",ct_sec:"Detik",ct_text:"Jam terus berdetik, kami tidak sabar untuk merayakannya bersama Anda, keluarga dan teman-teman kami di momen yang sangat spesial ini. Merupakan suatu kehormatan bagi kami untuk berbagi kebahagiaan kami dengan Anda semua.",ct_ongoing:"Acara Sedang Berlangsung",
+            gf_intro:"Kehadiran anda merupakan hadiah terbaik yang bisa kami harapkan. Namun jika anda bermaksud untuk mengirimkan hadiah pernikahan lain, kami sediakan fitur berikut",gf_btn1:"Klik Disini",gf_btn2:"Klik Disini",gf_copy_rek:"Salin Rekening",gf_send_title:"Kirim Kado",gf_send_sub:"Anda dapat mengirim kado ke:",gf_copy_almt:"Salin Alamat",gf_copied:"Berhasil Tersalin!",
+            rv_name:"Nama",rv_att:"Kehadiran",rv_pick:"Pilih Kehadiran",rv_yes:"Hadir",rv_no:"Tidak Hadir",rv_msg:"Komentar atau Ucapan",rv_send:"Kirim",rv_sending:"Mengirim...",rv_sent:"\u2713 Terkirim!",rv_fail:"Gagal, coba lagi",rv_just_now:"Baru saja",rv_comment_title:"UCAPAN & DOA",rv_no_comment:"Jadilah yang pertama memberikan ucapan!",
+            tk_title:"Terima Kasih",tk_text:"Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.",tk_label:"KAMI YANG BERBAHAGIA",
+            nav_couple:"Mempelai",nav_event:"Akad",nav_counting:"Counting",nav_thanks:"Thanks",
         },
         en: {
-            /* gatekeeper */
-            gt_label      : "WEDDING RECEPTION",
-            gt_to         : "Dear Mr./Mrs./Ladies & Gentlemen",
-            gt_btn        : "Open Invitation",
-            /* cover */
-            cv_label      : "WEDDING CELEBRATION",
-            cv_sub        : "THE WEDDING CELEBRATION",
-            /* quotes */
-            q_title       : "A Prayer",
-            q_text        : "\u201cAnd among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between your hearts...\u201d",
-            /* couple */
-            cp_salam      : "Assalamualaikum Wr. Wb.",
-            cp_intro      : "With the utmost respect, we would like to invite you to our wedding celebration:",
-            cp_putra      : "Son of",
-            cp_putri      : "Daughter of",
-            mr            : "Mr. ",
-            mrs           : "Mrs. ",
-            /* event */
-            ev_akad_title : "Akad Ceremony",
-            ev_akad_day   : "Friday",
-            ev_akad_time  : "At 08:30 WIB",
-            ev_akad_loc   : "Bride's Residence",
-            ev_res_title  : "Reception",
-            ev_res_day    : "Saturday",
-            ev_res_time   : "At 09:00 WIB - Until Finished",
-            ev_res_loc    : "Bride's Residence",
-            /* maps */
-            mp_title      : "Event Location",
-            mp_loc        : "Bride's Residence",
-            mp_btn        : "Get Directions",
-            /* counting */
-            ct_title      : "Counting Down",
-            ct_day        : "Days",
-            ct_hour       : "Hours",
-            ct_min        : "Minutes",
-            ct_sec        : "Seconds",
-            ct_text       : "The clock is ticking and we can't wait to celebrate this very special moment with you, our family and friends. It is our greatest honor to share our happiness with all of you.",
-            ct_ongoing    : "Event is Ongoing",
-            /* gift */
-            gf_intro      : "Your presence is the greatest gift we could hope for. However, if you wish to send a wedding gift, we have provided the following options",
-            gf_btn1       : "Click Here",
-            gf_btn2       : "Click Here",
-            gf_copy_rek   : "Copy Account No.",
-            gf_send_title : "Send a Gift",
-            gf_send_sub   : "You may send a gift to:",
-            gf_copy_almt  : "Copy Address",
-            gf_copied     : "Copied!",
-            /* rsvp */
-            rv_name       : "Name",
-            rv_att        : "Attendance",
-            rv_pick       : "Select Attendance",
-            rv_yes        : "Attending",
-            rv_no         : "Not Attending",
-            rv_msg        : "Message or Wishes",
-            rv_send       : "Submit",
-            rv_sending    : "Sending...",
-            rv_sent       : "\u2713 Sent!",
-            rv_fail       : "Failed, please try again",
-            rv_just_now   : "Just now",
-            /* thanks */
-            tk_title      : "Thank You",
-            tk_text       : "It would be our greatest joy if you could join us and share your blessings on this special occasion.",
-            tk_label      : "WITH LOVE",
-            /* nav */
-            nav_couple    : "Couple",
-            nav_event     : "Event",
-            nav_counting  : "Counting",
-            nav_thanks    : "Thanks",
+            gt_label:"WEDDING RECEPTION",gt_to:"Dear Mr./Mrs./Ladies & Gentlemen",gt_btn:"Open Invitation",
+            cv_label:"WEDDING CELEBRATION",cv_sub:"THE WEDDING CELEBRATION",
+            q_title:"A Prayer",q_text:"\u201cAnd among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between your hearts...\u201d",
+            cp_salam:"Assalamualaikum Wr. Wb.",cp_intro:"With the utmost respect, we would like to invite you to our wedding celebration:",cp_putra:"Son of",cp_putri:"Daughter of",mr:"Mr. ",mrs:"Mrs. ",
+            ev_akad_title:"Akad Ceremony",ev_akad_day:"Friday",ev_akad_time:"At 08:30 WIB",ev_akad_loc:"Bride's Residence",ev_res_title:"Reception",ev_res_day:"Saturday",ev_res_time:"At 09:00 WIB - Until Finished",ev_res_loc:"Bride's Residence",
+            mp_title:"Event Location",mp_loc:"Bride's Residence",mp_btn:"Get Directions",
+            ct_title:"Counting Down",ct_day:"Days",ct_hour:"Hours",ct_min:"Minutes",ct_sec:"Seconds",ct_text:"The clock is ticking and we can't wait to celebrate this very special moment with you, our family and friends. It is our greatest honor to share our happiness with all of you.",ct_ongoing:"Event is Ongoing",
+            gf_intro:"Your presence is the greatest gift we could hope for. However, if you wish to send a wedding gift, we have provided the following options",gf_btn1:"Click Here",gf_btn2:"Click Here",gf_copy_rek:"Copy Account No.",gf_send_title:"Send a Gift",gf_send_sub:"You may send a gift to:",gf_copy_almt:"Copy Address",gf_copied:"Copied!",
+            rv_name:"Name",rv_att:"Attendance",rv_pick:"Select Attendance",rv_yes:"Attending",rv_no:"Not Attending",rv_msg:"Message or Wishes",rv_send:"Submit",rv_sending:"Sending...",rv_sent:"\u2713 Sent!",rv_fail:"Failed, please try again",rv_just_now:"Just now",rv_comment_title:"WISHES & PRAYERS",rv_no_comment:"Be the first to leave a message!",
+            tk_title:"Thank You",tk_text:"It would be our greatest joy if you could join us and share your blessings on this special occasion.",tk_label:"WITH LOVE",
+            nav_couple:"Couple",nav_event:"Event",nav_counting:"Counting",nav_thanks:"Thanks",
         }
     };
 
-    // Ambil terjemahan aktif
     const T = TX[LANG];
 
-    // Helper: set teks elemen berdasarkan id
     function setText(id, val) {
         const el = document.getElementById(id);
         if (el) el.textContent = val;
     }
 
-    // Terapkan semua terjemahan ke DOM
     function applyTranslations() {
-        setText('i-gt-label',       T.gt_label);
-        setText('i-gt-to',          T.gt_to);
-        setText('i-gt-btn',         T.gt_btn);
-        setText('i-cv-label',       T.cv_label);
-        setText('i-cv-sub',         T.cv_sub);
-        setText('i-q-title',        T.q_title);
-        setText('i-q-text',         T.q_text);
-        setText('i-cp-salam',       T.cp_salam);
-        setText('i-cp-intro',       T.cp_intro);
-        setText('i-cp-putra',       T.cp_putra);
-        setText('i-cp-putri',       T.cp_putri);
-        // Ganti label Bapak/Ibu sesuai bahasa
+        setText('i-gt-label',T.gt_label);setText('i-gt-to',T.gt_to);setText('i-gt-btn',T.gt_btn);
+        setText('i-cv-label',T.cv_label);setText('i-cv-sub',T.cv_sub);
+        setText('i-q-title',T.q_title);setText('i-q-text',T.q_text);
+        setText('i-cp-salam',T.cp_salam);setText('i-cp-intro',T.cp_intro);setText('i-cp-putra',T.cp_putra);setText('i-cp-putri',T.cp_putri);
         document.querySelectorAll('.parent-name b').forEach(el => {
-            el.innerHTML = el.innerHTML
-                .replace(/Bapak /g, T.mr)
-                .replace(/Ibu /g, T.mrs);
+            el.innerHTML = el.innerHTML.replace(/Bapak /g,T.mr).replace(/Ibu /g,T.mrs);
         });
-        setText('i-ev-akad-title',  T.ev_akad_title);
-        setText('i-ev-akad-day',    T.ev_akad_day);
-        setText('i-ev-akad-time',   T.ev_akad_time);
-        setText('i-ev-akad-loc',    T.ev_akad_loc);
-        setText('i-ev-res-title',   T.ev_res_title);
-        setText('i-ev-res-day',     T.ev_res_day);
-        setText('i-ev-res-time',    T.ev_res_time);
-        setText('i-ev-res-loc',     T.ev_res_loc);
-        setText('i-mp-title',       T.mp_title);
-        setText('i-mp-loc',         T.mp_loc);
-        setText('i-mp-btn',         T.mp_btn);
-        setText('i-ct-title',       T.ct_title);
-        setText('i-ct-day',         T.ct_day);
-        setText('i-ct-hour',        T.ct_hour);
-        setText('i-ct-min',         T.ct_min);
-        setText('i-ct-sec',         T.ct_sec);
-        setText('i-ct-text',        T.ct_text);
-        setText('i-gf-intro',       T.gf_intro);
-        setText('i-gf-btn1',        T.gf_btn1);
-        setText('i-gf-btn2',        T.gf_btn2);
-        setText('i-gf-copy-rek',    T.gf_copy_rek);
-        setText('i-gf-send-title',  T.gf_send_title);
-        setText('i-gf-send-sub',    T.gf_send_sub);
-        setText('i-gf-copy-almt',   T.gf_copy_almt);
-        setText('i-rv-name-lbl',    T.rv_name);
-        setText('i-rv-att-lbl',     T.rv_att);
-        setText('i-rv-pick',        T.rv_pick);
-        setText('i-rv-yes',         T.rv_yes);
-        setText('i-rv-no',          T.rv_no);
-        setText('i-rv-msg-lbl',     T.rv_msg);
-        setText('i-rv-send-btn',    T.rv_send);
-        setText('i-tk-title',       T.tk_title);
-        setText('i-tk-text',        T.tk_text);
-        setText('i-tk-label',       T.tk_label);
-        setText('i-nav-couple',     T.nav_couple);
-        setText('i-nav-event',      T.nav_event);
-        setText('i-nav-counting',   T.nav_counting);
-        setText('i-nav-thanks',     T.nav_thanks);
-        // Textarea placeholder
+        setText('i-ev-akad-title',T.ev_akad_title);setText('i-ev-akad-day',T.ev_akad_day);setText('i-ev-akad-time',T.ev_akad_time);setText('i-ev-akad-loc',T.ev_akad_loc);
+        setText('i-ev-res-title',T.ev_res_title);setText('i-ev-res-day',T.ev_res_day);setText('i-ev-res-time',T.ev_res_time);setText('i-ev-res-loc',T.ev_res_loc);
+        setText('i-mp-title',T.mp_title);setText('i-mp-loc',T.mp_loc);setText('i-mp-btn',T.mp_btn);
+        setText('i-ct-title',T.ct_title);setText('i-ct-day',T.ct_day);setText('i-ct-hour',T.ct_hour);setText('i-ct-min',T.ct_min);setText('i-ct-sec',T.ct_sec);setText('i-ct-text',T.ct_text);
+        setText('i-gf-intro',T.gf_intro);setText('i-gf-btn1',T.gf_btn1);setText('i-gf-btn2',T.gf_btn2);setText('i-gf-copy-rek',T.gf_copy_rek);setText('i-gf-send-title',T.gf_send_title);setText('i-gf-send-sub',T.gf_send_sub);setText('i-gf-copy-almt',T.gf_copy_almt);
+        setText('i-rv-name-lbl',T.rv_name);setText('i-rv-att-lbl',T.rv_att);setText('i-rv-pick',T.rv_pick);setText('i-rv-yes',T.rv_yes);setText('i-rv-no',T.rv_no);setText('i-rv-msg-lbl',T.rv_msg);setText('i-rv-send-btn',T.rv_send);
+        setText('i-rv-comment-title',T.rv_comment_title);
+        setText('i-tk-title',T.tk_title);setText('i-tk-text',T.tk_text);setText('i-tk-label',T.tk_label);
+        setText('i-nav-couple',T.nav_couple);setText('i-nav-event',T.nav_event);setText('i-nav-counting',T.nav_counting);setText('i-nav-thanks',T.nav_thanks);
         const ta = document.getElementById('ucapan');
         if (ta) ta.placeholder = T.rv_msg;
     }
 
-    // Jalankan segera
     applyTranslations();
 
-    // ============================================================
-    // NAMA TAMU DARI URL — ?nama=Ahmad%20Fauzi
-    // ============================================================
+    // Nama tamu dari URL
     (function() {
-        const params   = new URLSearchParams(window.location.search);
-        const rawNama  = params.get('nama');
-        const namaEl   = document.getElementById('gt-guest-name');
-        const sapaanEl = document.getElementById('i-gt-to');
-
+        const params  = new URLSearchParams(window.location.search);
+        const rawNama = params.get('nama');
+        const namaEl  = document.getElementById('gt-guest-name');
         if (rawNama && rawNama.trim() !== '') {
-            const nama = decodeURIComponent(rawNama).trim();
-            // Nama tamu tampil di bawah sapaan yang sudah lengkap dari applyTranslations()
-            namaEl.textContent = nama;
+            namaEl.textContent = decodeURIComponent(rawNama).trim();
         } else {
             namaEl.textContent = '';
         }
     })();
 
     // ============================================================
-    // FUNGSI UTAMA (sama persis dengan kode asli)
+    // FUNGSI UTAMA
     // ============================================================
     function openInvitation() {
         const audio = document.getElementById('bgMusic');
@@ -924,9 +838,76 @@
 
     document.getElementById('bottom-nav').addEventListener('scroll', () => updateNavPill());
 
-    // RSVP → Google Sheets
+    // ============================================================
+    // RSVP + KOMENTAR
+    // ============================================================
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycaxXOkTTnGAJMl6_6W9Hbp6rwN2BZTabMxxh9h6Kf-hxFrWOI7nQ7wmm1lLomblfb/exec";
 
+    // Buat HTML satu komentar
+    function buildCommentHTML(item, prepend) {
+        const isAttend  = item.kehadiran === "Hadir" || item.kehadiran === "Attending";
+        const badge     = item.kehadiran
+            ? (isAttend
+                ? `<span class="badge-hadir">${T.rv_yes}</span>`
+                : `<span class="badge-tidak">${T.rv_no}</span>`)
+            : '';
+        const inisial   = item.nama.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
+        const ucapan    = item.ucapan ? item.ucapan : '—';
+        const tanggal   = item.timestamp || T.rv_just_now;
+        return `
+            <div class="comment-item" style="animation:fadeIn 0.5s ease;">
+                <div class="avatar">${inisial}</div>
+                <div class="comment-body">
+                    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+                        <span class="comment-name">${item.nama}</span>${badge}
+                    </div>
+                    <p class="comment-text">${ucapan}</p>
+                    <span class="comment-date">${tanggal}</span>
+                </div>
+            </div>`;
+    }
+
+    // Load komentar dari spreadsheet via doGet
+    function loadComments() {
+        fetch(APPS_SCRIPT_URL, { method: "GET", mode: "cors" })
+            .then(res => res.json())
+            .then(json => {
+                // Hapus skeleton
+                const s1 = document.getElementById('skel-1');
+                const s2 = document.getElementById('skel-2');
+                if (s1) s1.remove();
+                if (s2) s2.remove();
+
+                const list = document.getElementById('comment-list');
+
+                if (!json.data || json.data.length === 0) {
+                    list.innerHTML = `<div class="comment-empty">
+                        <i class="fas fa-comment-dots"></i>
+                        ${T.rv_no_comment}
+                    </div>`;
+                    document.getElementById('comment-count-badge').textContent = '0';
+                    return;
+                }
+
+                // Update badge jumlah
+                document.getElementById('comment-count-badge').textContent = json.data.length;
+
+                // Render semua komentar (sudah urut terbaru dari doGet)
+                list.innerHTML = json.data.map(item => buildCommentHTML(item)).join('');
+            })
+            .catch(() => {
+                // Jika gagal load, hapus skeleton saja
+                const s1 = document.getElementById('skel-1');
+                const s2 = document.getElementById('skel-2');
+                if (s1) s1.remove();
+                if (s2) s2.remove();
+            });
+    }
+
+    // Load komentar saat halaman pertama dibuka
+    loadComments();
+
+    // Submit RSVP → Google Sheets lalu tambah komentar baru di atas
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const btn = document.getElementById('i-rv-send-btn');
@@ -953,23 +934,18 @@
             document.getElementById('kehadiran').value = "";
             document.getElementById('ucapan').value    = "";
 
-            const container = document.querySelector('.comment-container');
-            const isAttend  = data.kehadiran === "Hadir" || data.kehadiran === "Attending";
-            const badge     = isAttend
-                ? `<span class="badge-hadir">${T.rv_yes}</span>`
-                : `<span class="badge-hadir" style="background:#fce4ec;color:#c62828;">${T.rv_no}</span>`;
-            const inisial = data.nama.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
-            container.insertAdjacentHTML('afterbegin', `
-                <div class="comment-item" style="animation:fadeIn 0.5s ease;">
-                    <div class="avatar">${inisial}</div>
-                    <div class="comment-body">
-                        <div style="display:flex;align-items:center;">
-                            <span class="comment-name">${data.nama}</span>${badge}
-                        </div>
-                        <p class="comment-text">${data.ucapan || '—'}</p>
-                        <span class="comment-date">${T.rv_just_now}</span>
-                    </div>
-                </div>`);
+            // Hapus empty state jika ada
+            const emptyEl = document.querySelector('.comment-empty');
+            if (emptyEl) emptyEl.remove();
+
+            // Tambah komentar baru di paling atas
+            const list = document.getElementById('comment-list');
+            const newItem = { ...data, timestamp: T.rv_just_now };
+            list.insertAdjacentHTML('afterbegin', buildCommentHTML(newItem, true));
+
+            // Update badge
+            const badge = document.getElementById('comment-count-badge');
+            badge.textContent = parseInt(badge.textContent || 0) + 1;
 
             setTimeout(() => {
                 btn.innerText        = T.rv_send;
