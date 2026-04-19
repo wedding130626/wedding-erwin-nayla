@@ -845,22 +845,14 @@
 
     // Buat HTML satu komentar
     function buildCommentHTML(item, prepend) {
-        const isAttend  = item.kehadiran === "Hadir" || item.kehadiran === "Attending";
-        const badge     = item.kehadiran
-            ? (isAttend
-                ? `<span class="badge-hadir">${T.rv_yes}</span>`
-                : `<span class="badge-tidak">${T.rv_no}</span>`)
-            : '';
-        const inisial   = item.nama.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
-        const ucapan    = item.ucapan ? item.ucapan : '—';
-        const tanggal   = item.timestamp || T.rv_just_now;
+        const inisial = item.nama.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
+        const ucapan  = item.ucapan ? item.ucapan : '—';
+        const tanggal = item.timestamp || T.rv_just_now;
         return `
             <div class="comment-item" style="animation:fadeIn 0.5s ease;">
                 <div class="avatar">${inisial}</div>
                 <div class="comment-body">
-                    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
-                        <span class="comment-name">${item.nama}</span>${badge}
-                    </div>
+                    <span class="comment-name">${item.nama}</span>
                     <p class="comment-text">${ucapan}</p>
                     <span class="comment-date">${tanggal}</span>
                 </div>
